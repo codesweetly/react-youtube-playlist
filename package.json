@@ -3,5 +3,8 @@
   "version": "0.0.1-beta",
   "main": "index.js",
   "author": "Oluwatobi Sofela <oluwatobiss@codesweetly.com> (https://www.codesweetly.com)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "fslightbox-react": "^1.6.2-2"
+  }
 }
