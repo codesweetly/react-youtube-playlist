@@ -1,5 +1,6 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import YouTubePlaylist from "./components/YouTubePlaylist";
 
 function App() {
   return (
@@ -18,6 +19,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <YouTubePlaylist
+        youtubeAPI="YOUR_YOUTUBE_API_KEY"
+        playlistId="YOUR_YOUTUBE_PLAYLIST_ID"
+      />
     </div>
   );
 }
