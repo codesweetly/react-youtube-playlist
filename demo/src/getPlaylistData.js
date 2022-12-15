@@ -1,7 +1,3 @@
-// Only 'docusaurus.config.js' has  direct access to the 'process' global variable
-// So, pass API as an argument
-// (See this Docusaurus doc for more: https://docusaurus.io/docs/deployment#using-environment-variables)
-
 async function getPlaylistData(youtubeAPI, playlistId, currNextPageToken) {
   const youtubePlaylistItemsRequestEndPoint =
     "https://www.googleapis.com/youtube/v3/playlistItems";

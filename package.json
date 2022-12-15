@@ -15,7 +15,9 @@
     "video",
     "embed",
     "lightbox",
-    "react-component"
+    "react-component",
+    "youtube api",
+    "youtube playlist"
   ],
   "repository": {
     "type": "git",
