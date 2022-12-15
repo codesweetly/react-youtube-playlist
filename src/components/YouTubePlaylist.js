@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import FsLightbox from "fslightbox-react";
 import Loader from "./Loader";
 import getPlaylistData from "../getPlaylistData";
-import "../css/VideoGallery.css";
+import "../css/YouTubePlaylist.css";
 
-function VideoGallery({ youtubeAPI, playlistId }) {
+function YouTubePlaylist({ youtubeAPI, playlistId }) {
   const [URLs, setURLs] = useState([]);
   const [playlistDataArray, setPlaylistDataArray] = useState(null);
   const [isNotFetchingData, setIsNotFetchingData] = useState(true);
@@ -118,4 +118,4 @@ function VideoGallery({ youtubeAPI, playlistId }) {
   );
 }
 
-export default VideoGallery;
+export default YouTubePlaylist;
