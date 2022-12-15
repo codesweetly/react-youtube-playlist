@@ -1,7 +1,7 @@
 {
   "name": "@codesweetly/react-youtube-playlist",
   "version": "0.0.1-beta",
-  "main": "index.js",
+  "main": "./src/components/VideoGallery.js",
   "author": "Oluwatobi Sofela <oluwatobiss@codesweetly.com> (https://www.codesweetly.com)",
   "license": "MIT",
   "dependencies": {
