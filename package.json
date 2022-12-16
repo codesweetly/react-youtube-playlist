@@ -27,6 +27,7 @@
     "fslightbox-react": "^1.6.2-2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.20.2"
+    "@babel/preset-env": "^7.20.2",
+    "@babel/preset-react": "^7.18.6"
   }
 }
