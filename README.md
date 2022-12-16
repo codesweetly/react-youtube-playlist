@@ -1,5 +1,10 @@
 # React YouTube Playlist
 
+> **⚠ WARNING: Don't use this package yet!**  
+> This package is not stable. It still contains bugs!
+> The stable version will start at 1.0.0
+> Working on releasing the stable version soon...
+
 ## Usage
 
 ```js
