@@ -1,6 +1,13 @@
 const path = require("path");
 
 module.exports = {
+  entry: "./src/components/YouTubePlaylist.js",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "main.js",
+  },
+  devtool: "source-map",
+  mode: "development",
   module: {
     rules: [
       {
@@ -12,6 +19,10 @@ module.exports = {
             presets: ["@babel/preset-env"],
           },
         },
+      },
+      {
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
       },
     ],
   },
