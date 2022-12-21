@@ -4,6 +4,9 @@
 # Production
 /dist
 
+# JSX files
+*.jsx
+
 # Generated files
 .cache-loader
 
