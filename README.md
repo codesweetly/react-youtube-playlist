@@ -5,7 +5,7 @@
 > The stable version will start at 1.0.0
 > Working on releasing the stable version soon...
 
-A React component for displaying YouTube video playlists on a web app. Create a beautiful gallery of YouTube videos that play with a lightbox.
+A React component for displaying YouTube video playlists on a web app. Create a beautiful gallery of YouTube videos.
 
 ![npm](https://img.shields.io/npm/v/@codesweetly/react-youtube-playlist) ![NPM](https://img.shields.io/npm/l/@codesweetly/react-youtube-playlist)
 
