@@ -16,11 +16,8 @@
     "player",
     "gallery",
     "video",
-    "embed",
     "lightbox",
-    "react-component",
-    "youtube api",
-    "youtube playlist"
+    "docusaurus"
   ],
   "repository": {
     "type": "git",
