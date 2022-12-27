@@ -14,7 +14,7 @@ function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "functio
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 function YouTubePlaylist(_ref) {
   let {
-    youtubeAPI,
+    APIKey,
     playlistId
   } = _ref;
   const [URLs, setURLs] = (0, _react.useState)([]);
@@ -33,7 +33,7 @@ function YouTubePlaylist(_ref) {
   }
   function saveSubsequentPlaylistAndURLDataArrayToState() {
     const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
-    (0, _getPlaylistData.default)(youtubeAPI, playlistId, lastGalleryItem.nextPageToken).then(newData => {
+    (0, _getPlaylistData.default)(APIKey, playlistId, lastGalleryItem.nextPageToken).then(newData => {
       const newURLs = newData.map(data => {
         return `https://www.youtube.com/watch?v=${data.resourceId.videoId}`;
       });
@@ -78,7 +78,7 @@ function YouTubePlaylist(_ref) {
   }
   (0, _react.useEffect)(() => {
     function saveInitialPlaylistAndURLDataArrayToState() {
-      (0, _getPlaylistData.default)(youtubeAPI, playlistId).then(items => {
+      (0, _getPlaylistData.default)(APIKey, playlistId).then(items => {
         const URLs = items.map(item => {
           return `https://www.youtube.com/watch?v=${item.resourceId.videoId}`;
         });
@@ -87,7 +87,7 @@ function YouTubePlaylist(_ref) {
       }).catch(e => console.error(`Error getting playlist data: ${e}`));
     }
     saveInitialPlaylistAndURLDataArrayToState();
-  }, [youtubeAPI, playlistId]);
+  }, [APIKey, playlistId]);
   (0, _react.useEffect)(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
