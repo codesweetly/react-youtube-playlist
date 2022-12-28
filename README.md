@@ -31,7 +31,7 @@ import YouTubePlaylist from "@codesweetly/react-youtube-playlist";
 function App() {
   return (
     <YouTubePlaylist
-      APIKey="YOUR_YOUTUBE_API_KEY"
+      apiKey="YOUR_YOUTUBE_API_KEY"
       playlistId="YOUR_YOUTUBE_PLAYLIST_ID"
     />
   );
