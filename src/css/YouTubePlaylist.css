@@ -4,6 +4,10 @@
   grid-gap: 0 1rem;
 }
 
+.youtube-video-figure {
+  margin: 0;
+}
+
 .youtube-video-image {
   width: 100%;
   cursor: pointer;
