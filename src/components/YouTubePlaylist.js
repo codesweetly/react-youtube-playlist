@@ -63,7 +63,7 @@ function YouTubePlaylist(_ref) {
   if (playlistDataArray) {
     imgElementArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video") {
-        return /*#__PURE__*/_react.default.createElement("div", {
+        return /*#__PURE__*/_react.default.createElement("figure", {
           key: item.id
         }, /*#__PURE__*/_react.default.createElement("img", {
           alt: item.title,
