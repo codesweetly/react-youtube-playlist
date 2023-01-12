@@ -50,10 +50,6 @@ function YouTubePlaylist(_ref) {
       const lengthScrolled = e.target.documentElement.scrollTop;
       const galleryHeightIsGreaterThanViewport = galleryHeight > viewportHeight;
       const heightAboveGallery = playlistGalleryDiv.offsetTop;
-      console.log({
-        heightAboveGallery,
-        lengthScrolled
-      });
       const totalGalleryScrollableHeight = galleryHeightIsGreaterThanViewport ? galleryHeight - viewportHeight + heightAboveGallery : 0;
       const remainingGalleryScrollableHeight = totalGalleryScrollableHeight - lengthScrolled;
       const scrolledToGalleryBottom = remainingGalleryScrollableHeight <= 0;
