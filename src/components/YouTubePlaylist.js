@@ -49,8 +49,12 @@ function YouTubePlaylist(_ref) {
       const viewportHeight = e.target.documentElement.clientHeight;
       const lengthScrolled = e.target.documentElement.scrollTop;
       const galleryHeightIsGreaterThanViewport = galleryHeight > viewportHeight;
-      const heightAboveGallery = playlistGalleryDiv.offsetTop; //0.55 * viewportHeight;
-      const totalGalleryScrollableHeight = galleryHeightIsGreaterThanViewport ? galleryHeight - viewportHeight - heightAboveGallery : 0;
+      const heightAboveGallery = playlistGalleryDiv.offsetTop;
+      console.log({
+        heightAboveGallery,
+        lengthScrolled
+      });
+      const totalGalleryScrollableHeight = galleryHeightIsGreaterThanViewport ? galleryHeight - viewportHeight + heightAboveGallery : 0;
       const remainingGalleryScrollableHeight = totalGalleryScrollableHeight - lengthScrolled;
       const scrolledToGalleryBottom = remainingGalleryScrollableHeight <= 0;
       const moreVideosAvailable = playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
