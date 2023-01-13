@@ -1,4 +1,4 @@
-.youtube-videos-div {
+.playlist-gallery-div {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   grid-gap: 0 1rem;

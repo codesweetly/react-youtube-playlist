@@ -15,7 +15,8 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function YouTubePlaylist(_ref) {
   let {
     apiKey,
-    playlistId
+    playlistId,
+    uniqueId
   } = _ref;
   const [URLs, setURLs] = (0, _react.useState)([]);
   const [playlistDataArray, setPlaylistDataArray] = (0, _react.useState)(null);
@@ -24,7 +25,7 @@ function YouTubePlaylist(_ref) {
     toggler: false,
     slide: 1
   });
-  let imgElementArray = null;
+  let youtubeVideoFiguresArray = null;
   function openLightboxOnSlide(number) {
     setLightboxController({
       toggler: !lightboxController.toggler,
@@ -43,8 +44,8 @@ function YouTubePlaylist(_ref) {
     setIsNotFetchingData(true);
   }
   function handleScroll(e) {
-    if (playlistDataArray && imgElementArray) {
-      const playlistGalleryDiv = document.getElementById("playlist-gallery-div");
+    if (playlistDataArray && youtubeVideoFiguresArray) {
+      const playlistGalleryDiv = document.getElementById(uniqueId);
       const galleryHeight = playlistGalleryDiv.clientHeight;
       const viewportHeight = e.target.documentElement.clientHeight;
       const lengthScrolled = e.target.documentElement.scrollTop;
@@ -60,8 +61,8 @@ function YouTubePlaylist(_ref) {
       }
     }
   }
-  if (playlistDataArray) {
-    imgElementArray = playlistDataArray.map((item, index) => {
+  if (playlistDataArray && uniqueId) {
+    youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video") {
         return /*#__PURE__*/_react.default.createElement("figure", {
           className: "youtube-video-figure",
@@ -96,12 +97,12 @@ function YouTubePlaylist(_ref) {
     };
   });
   return /*#__PURE__*/_react.default.createElement("div", {
-    id: "playlist-gallery-div",
-    className: "youtube-videos-div"
-  }, playlistDataArray ? imgElementArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
+    id: uniqueId,
+    className: "playlist-gallery-div"
+  }, playlistDataArray ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
     toggler: lightboxController.toggler,
-    sources: URLs,
-    slide: lightboxController.slide
+    slide: lightboxController.slide,
+    sources: URLs
   }));
 }
 var _default = YouTubePlaylist;
