@@ -102,7 +102,8 @@ function YouTubePlaylist(_ref) {
   }, playlistDataArray ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
     toggler: lightboxController.toggler,
     slide: lightboxController.slide,
-    sources: URLs
+    sources: URLs,
+    key: URLs.length
   }));
 }
 var _default = YouTubePlaylist;
