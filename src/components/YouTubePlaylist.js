@@ -68,7 +68,7 @@ function YouTubePlaylist(_ref) {
           className: "youtube-video-figure",
           key: item.id
         }, /*#__PURE__*/_react.default.createElement("img", {
-          alt: item.title,
+          alt: `Video ${index + 1} of ${playlistDataArray.length}`,
           src: item.thumbnails.high.url,
           className: "youtube-video-image",
           onClick: () => openLightboxOnSlide(index + 1)
