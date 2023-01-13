@@ -73,7 +73,9 @@ The `apiKey` props is a string value that specifies your project's YouTube API k
 </td>
 <td>
 
-The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display. **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
+The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display.
+
+**Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
 
 </td>
 </tr>
@@ -85,7 +87,12 @@ The `playlistId` props is a string value that specifies the ID of the YouTube pl
 </td>
 <td>
 
-Give the `<YouTubePlaylist>` instance a unique name. **Note:** No two `<YouTubePlaylist>` on a single page must have the same name.
+Give the `<YouTubePlaylist>` instance a unique name.
+
+**Note:**
+
+- No two `<YouTubePlaylist>` on a single page must have the same name.
+- Use the [HTML `id` attribute's naming convention](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) for the `uniqueName` prop.
 
 </td>
 </tr>
