@@ -103,6 +103,7 @@ function YouTubePlaylist(_ref) {
     toggler: lightboxController.toggler,
     slide: lightboxController.slide,
     sources: URLs,
+    type: "youtube",
     key: URLs.length
   }));
 }
