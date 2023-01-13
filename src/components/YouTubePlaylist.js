@@ -61,7 +61,7 @@ function YouTubePlaylist(_ref) {
       }
     }
   }
-  if (playlistDataArray && uniqueId) {
+  if (playlistDataArray) {
     youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video") {
         return /*#__PURE__*/_react.default.createElement("figure", {
@@ -99,7 +99,7 @@ function YouTubePlaylist(_ref) {
   return /*#__PURE__*/_react.default.createElement("div", {
     id: uniqueId,
     className: "playlist-gallery-div"
-  }, playlistDataArray ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
+  }, playlistDataArray && uniqueId ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
     toggler: lightboxController.toggler,
     slide: lightboxController.slide,
     sources: URLs,
