@@ -16,7 +16,7 @@ function YouTubePlaylist(_ref) {
   let {
     apiKey,
     playlistId,
-    uniqueId
+    uniqueName
   } = _ref;
   const [URLs, setURLs] = (0, _react.useState)([]);
   const [playlistDataArray, setPlaylistDataArray] = (0, _react.useState)(null);
@@ -45,7 +45,7 @@ function YouTubePlaylist(_ref) {
   }
   function handleScroll(e) {
     if (playlistDataArray && youtubeVideoFiguresArray) {
-      const playlistGalleryDiv = document.getElementById(uniqueId);
+      const playlistGalleryDiv = document.getElementById(uniqueName);
       const galleryHeight = playlistGalleryDiv.clientHeight;
       const viewportHeight = e.target.documentElement.clientHeight;
       const lengthScrolled = e.target.documentElement.scrollTop;
@@ -97,9 +97,9 @@ function YouTubePlaylist(_ref) {
     };
   });
   return /*#__PURE__*/_react.default.createElement("div", {
-    id: uniqueId,
+    id: uniqueName,
     className: "playlist-gallery-div"
-  }, playlistDataArray && uniqueId ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
+  }, playlistDataArray && uniqueName ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
     toggler: lightboxController.toggler,
     slide: lightboxController.slide,
     sources: URLs,
