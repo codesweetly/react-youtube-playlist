@@ -37,6 +37,7 @@ function App() {
     <YouTubePlaylist
       apiKey="YOUR_YOUTUBE_API_KEY"
       playlistId="YOUR_YOUTUBE_PLAYLIST_ID"
+      uniqueName="THIS_PLAYLIST_INSTANCE_NAME"
     />
   );
 }
@@ -48,3 +49,38 @@ function App() {
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apiKey`     | The `apiKey` props is a string value that specifies your project's YouTube API key. ([Learn how to get an API key](https://youtu.be/N18czV5tj5o))                                                                                                                                      |
 | `playlistId` | The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display. **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`. |
+
+<table>
+<thead>
+<tr>
+<th>Props</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+
+`apiKey`
+
+</td>
+<td>
+
+The `apiKey` props is a string value that specifies your project's YouTube API key. ([Learn how to get an API key](https://youtu.be/N18czV5tj5o))
+
+</td>
+</tr>
+<tr>
+<td>
+
+`playlistId`
+
+</td>
+<td>
+
+The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display. **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
+
+</td>
+</tr>
+</tbody>
+</table>
