@@ -45,11 +45,6 @@ function App() {
 
 ## Required Props
 
-| Props        | Description                                                                                                                                                                                                                                                                            |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `apiKey`     | The `apiKey` props is a string value that specifies your project's YouTube API key. ([Learn how to get an API key](https://youtu.be/N18czV5tj5o))                                                                                                                                      |
-| `playlistId` | The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display. **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`. |
-
 <table>
 <thead>
 <tr>
@@ -79,6 +74,18 @@ The `apiKey` props is a string value that specifies your project's YouTube API k
 <td>
 
 The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display. **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
+
+</td>
+</tr>
+<tr>
+<td>
+
+`uniqueName`
+
+</td>
+<td>
+
+Give the `<YouTubePlaylist>` instance a unique name. **Note:** No two `<YouTubePlaylist>` on a single page must have the same name.
 
 </td>
 </tr>
