@@ -1,11 +1,6 @@
 # React YouTube Playlist
 
-> **⚠ WARNING: Use with caution!**  
-> This package is not stable. It still contains bugs!
-> The stable version will start at 1.0.0
-> Working on releasing the stable version soon...
-
-A React component for displaying YouTube video playlists on a web app. Create a beautiful gallery of YouTube videos.
+An easy to use and responsive React component for displaying YouTube playlists on a web app. Create a beautiful gallery of YouTube videos.
 
 ![npm](https://img.shields.io/npm/v/@codesweetly/react-youtube-playlist) ![NPM](https://img.shields.io/npm/l/@codesweetly/react-youtube-playlist)
 
@@ -54,11 +49,7 @@ function App() {
 </thead>
 <tbody>
 <tr>
-<td>
-
-`apiKey`
-
-</td>
+<td><code>apiKey</code></td>
 <td>
 
 The `apiKey` props is a string value that specifies your project's YouTube API key. ([Learn how to get an API key](https://youtu.be/N18czV5tj5o))
@@ -66,25 +57,17 @@ The `apiKey` props is a string value that specifies your project's YouTube API k
 </td>
 </tr>
 <tr>
-<td>
-
-`playlistId`
-
-</td>
+<td><code>playlistId</code></td>
 <td>
 
 The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display.
 
-**Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
+**Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](https://codesweetly.com/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
 
 </td>
 </tr>
 <tr>
-<td>
-
-`uniqueName`
-
-</td>
+<td><code>uniqueName</code></td>
 <td>
 
 Give the `<YouTubePlaylist>` instance a unique name.
