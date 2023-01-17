@@ -1,7 +1,7 @@
 {
   "name": "@codesweetly/react-youtube-playlist",
   "version": "1.0.0",
-  "description": "A React component for displaying YouTube video playlists on a web app. Create a beautiful gallery of YouTube videos that play with a lightbox",
+  "description": "An easy-to-use and responsive React component for displaying YouTube playlists on a web app.",
   "homepage": "https://codesweetly.com/react-youtube-playlist",
   "main": "./src/components/YouTubePlaylist.js",
   "author": "Oluwatobi Sofela (https://www.codesweetly.com)",

@@ -1,6 +1,6 @@
 # React YouTube Playlist
 
-An easy to use and responsive React component for displaying YouTube playlists on a web app. Create a beautiful gallery of YouTube videos.
+An easy-to-use and responsive React component for displaying YouTube playlists on a web app. Create a beautiful gallery of YouTube videos.
 
 ![npm](https://img.shields.io/npm/v/@codesweetly/react-youtube-playlist) ![NPM](https://img.shields.io/npm/l/@codesweetly/react-youtube-playlist)
 
@@ -70,12 +70,12 @@ The `playlistId` props is a string value that specifies the ID of the YouTube pl
 <td><code>uniqueName</code></td>
 <td>
 
-Give the `<YouTubePlaylist>` instance a unique name.
+The `uniqueName` props is a string value that specifies a unique name for the `<YouTubePlaylist>` instance.
 
 **Note:**
 
 - No two `<YouTubePlaylist>` on a single page must have the same name.
-- Use the [HTML `id` attribute's naming convention](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) for the `uniqueName` prop.
+- Use the [HTML `id` attribute's naming convention](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) for the `uniqueName` props.
 
 </td>
 </tr>
