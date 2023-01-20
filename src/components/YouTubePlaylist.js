@@ -18,7 +18,7 @@ function YouTubePlaylist(_ref) {
     playlistId,
     uniqueName
   } = _ref;
-  const [URLs, setURLs] = (0, _react.useState)([]);
+  const [urls, setUrls] = (0, _react.useState)([]);
   const [playlistDataArray, setPlaylistDataArray] = (0, _react.useState)(null);
   const [isNotFetchingData, setIsNotFetchingData] = (0, _react.useState)(true);
   const [uniqueNameParsed] = (0, _react.useState)(uniqueName.toLowerCase().replace(/\s/g, "-"));
@@ -36,10 +36,10 @@ function YouTubePlaylist(_ref) {
   function saveSubsequentPlaylistAndURLDataArrayToState() {
     const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
     (0, _getPlaylistData.default)(apiKey, playlistId, lastGalleryItem.nextPageToken).then(newData => {
-      const newURLs = newData.map(data => {
+      const newUrls = newData.map(data => {
         return `https://www.youtube.com/watch?v=${data.resourceId.videoId}`;
       });
-      setURLs([...URLs, ...newURLs]);
+      setUrls([...urls, ...newUrls]);
       setPlaylistDataArray([...playlistDataArray, ...newData]);
     }).catch(e => console.error(`Error getting next page playlist data: ${e}`));
     setIsNotFetchingData(true);
@@ -82,10 +82,10 @@ function YouTubePlaylist(_ref) {
   (0, _react.useEffect)(() => {
     function saveInitialPlaylistAndURLDataArrayToState() {
       (0, _getPlaylistData.default)(apiKey, playlistId).then(items => {
-        const URLs = items.map(item => {
+        const urls = items.map(item => {
           return `https://www.youtube.com/watch?v=${item.resourceId.videoId}`;
         });
-        setURLs(URLs);
+        setUrls(urls);
         setPlaylistDataArray(items);
       }).catch(e => console.error(`Error getting playlist data: ${e}`));
     }
@@ -103,9 +103,9 @@ function YouTubePlaylist(_ref) {
   }, playlistDataArray && uniqueName ? youtubeVideoFiguresArray : (0, _Loader.default)(), /*#__PURE__*/_react.default.createElement(_fslightboxReact.default, {
     toggler: lightboxController.toggler,
     slide: lightboxController.slide,
-    sources: URLs,
+    sources: urls,
     type: "youtube",
-    key: URLs.length
+    key: urls.length
   }));
 }
 var _default = YouTubePlaylist;
