@@ -23,3 +23,6 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Linting files
+commitlint.config.js
