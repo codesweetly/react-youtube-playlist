@@ -24,5 +24,6 @@ yarn-error.log*
 # Local Netlify folder
 .netlify
 
-# Linting files
+# Linting
+/.husky
 commitlint.config.js
