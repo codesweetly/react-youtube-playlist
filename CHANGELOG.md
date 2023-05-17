@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.6](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.5...v1.0.6) (2023-05-17)
+
+
+### 🏠 Internal
+
+* **gitignore:** Ignore .env ([e41503c](https://github.com/codesweetly/react-youtube-playlist/commit/e41503c42871a40124a68c6c71d998a2290ddfc2))
+
 ## [1.0.5](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.3...v1.0.5) (2023-05-17)
 
 
