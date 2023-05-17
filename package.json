@@ -30,7 +30,8 @@
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
-    "husky": "^8.0.3"
+    "husky": "^8.0.3",
+    "release-it": "^15.10.3"
   },
   "peerDependencies": {
     "fslightbox-react": "^1.6.3",
