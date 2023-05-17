@@ -13,8 +13,12 @@
       "preset": {
         "name": "conventionalcommits",
         "types": [
-          { "type": "feat", "section": "🚀 Features" },
-          { "type": "fix", "section": "🩹 Bug Fixes" }
+          { "type": "build", "section": "🔨 Underlying Tools" },
+          { "type": "chore", "section": "🏠 Internal" },
+          { "type": "docs", "section": "📝 Documentation" },
+          { "type": "feat", "section": "🚀 New Feature" },
+          { "type": "fix", "section": "🐛 Bug Fix" },
+          { "type": "perf", "section": "💅 Enhancement" }
         ]
       }
     }
