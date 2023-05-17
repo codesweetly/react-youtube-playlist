@@ -37,7 +37,7 @@
     "release-it": "^15.10.3"
   },
   "peerDependencies": {
-    "fslightbox-react": "^1.6.3",
+    "fslightbox-react": "^1.7.4",
     "prop-types": "^15.8.1",
     "react": "^18.2.0"
   }
