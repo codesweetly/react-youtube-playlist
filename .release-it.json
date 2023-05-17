@@ -2,6 +2,10 @@
   "git": {
     "commitMessage": "chore: release v${version}"
   },
+  "github": {
+    "release": true,
+    "tokenRef": "RELEASE_IT_GITHUB_TOKEN"
+  },
   "plugins": {
     "@release-it/conventional-changelog": {
       "infile": "CHANGELOG.md",
