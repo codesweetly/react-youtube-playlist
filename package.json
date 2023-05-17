@@ -7,7 +7,8 @@
   "author": "Oluwatobi Sofela (https://www.codesweetly.com)",
   "license": "MIT",
   "scripts": {
-    "build": "babel src/components/ -d src/components/"
+    "build": "babel src/components/ -d src/components/",
+    "release": "release-it"
   },
   "keywords": [
     "react",
@@ -30,6 +31,7 @@
     "@babel/preset-react": "^7.18.6",
     "@commitlint/cli": "^17.6.3",
     "@commitlint/config-conventional": "^17.6.3",
+    "@release-it/conventional-changelog": "^5.1.1",
     "husky": "^8.0.3",
     "release-it": "^15.10.3"
   },

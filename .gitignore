@@ -26,4 +26,3 @@ yarn-error.log*
 
 # Linting
 /.husky
-commitlint.config.js
