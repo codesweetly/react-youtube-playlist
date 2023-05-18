@@ -24,6 +24,7 @@ yarn-error.log*
 
 .husky
 .release-it.json
+babel.config.json
 
 # Local Netlify folder
 .netlify
