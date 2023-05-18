@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.7](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.6...v1.0.7) (2023-05-18)
+
+
+### 🏠 Internal
+
+* **babel:** Remove configuration file from version control ([37b73b5](https://github.com/codesweetly/react-youtube-playlist/commit/37b73b5ae3ad24f1b96b79240db38d6779031010))
+* **commitlint:** Remove configuration file from version control ([0490813](https://github.com/codesweetly/react-youtube-playlist/commit/0490813516738f354fef8237fefb641e4cee9df2))
+* **release-it:** Remove configuration file from version control ([50ea5d6](https://github.com/codesweetly/react-youtube-playlist/commit/50ea5d65d34692673721114737797e7df920122d))
+
 ## [1.0.6](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.5...v1.0.6) (2023-05-17)
 
 
