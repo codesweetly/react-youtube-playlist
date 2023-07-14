@@ -1,4 +1,29 @@
-async function getPlaylistData(apiKey, playlistId, currNextPageToken) {
+interface PlaylistDataItem {
+  id: string;
+  snippet: {
+    title: string;
+    thumbnails: {
+      high: {
+        url: string;
+      };
+    };
+    resourceId: { videoId: string };
+  };
+}
+
+interface FetchedData {
+  items: [];
+  nextPageToken: string;
+  pageInfo: {
+    totalResults: number;
+  };
+}
+
+async function getPlaylistData(
+  apiKey: string,
+  playlistId: string,
+  currNextPageToken?: string
+) {
   const youtubePlaylistItemsRequestEndPoint =
     "https://www.googleapis.com/youtube/v3/playlistItems";
 
@@ -9,9 +34,9 @@ async function getPlaylistData(apiKey, playlistId, currNextPageToken) {
   );
 
   const data = await fetchedPlaylist.json();
-  const { items, nextPageToken, pageInfo } = data;
+  const { items, nextPageToken, pageInfo }: FetchedData = data;
   const totalVideosAvailable = pageInfo.totalResults;
-  const playlistData = items.map((i) => {
+  const playlistData = items.map((i: PlaylistDataItem) => {
     const { id, snippet } = i;
     const { title, thumbnails, resourceId } = snippet;
     return {

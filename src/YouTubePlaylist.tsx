@@ -85,15 +85,6 @@ function YouTubePlaylist({
       const moreVideosAvailable =
         playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
 
-      // console.log(e.target);
-      // console.log(e.currentTarget);
-      // console.log(e.currentTarget.document.documentElement);
-      // console.log(e.currentTarget.clientHeight);
-      // console.log(e.currentTarget.scrollTop);
-      // console.log({ testHeight: window.document.documentElement.clientHeight });
-      // console.log({ testTop: window.document.documentElement.scrollTop });
-      console.log({ viewportHeight, viewportLengthScrolled });
-
       if (scrolledToGalleryBottom && moreVideosAvailable && isNotFetchingData) {
         setIsNotFetchingData(false);
         saveSubsequentPlaylistAndURLDataArrayToState();
@@ -102,30 +93,32 @@ function YouTubePlaylist({
   }
 
   if (playlistDataArray) {
-    youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
-      if (item.title !== "Deleted video") {
-        return (
-          <figure className="youtube-video-figure" key={item.id}>
-            <img
-              alt={`Video ${index + 1} of ${playlistDataArray.length}`}
-              src={item.thumbnails.high.url}
-              className="youtube-video-image"
-              onClick={() => openLightboxOnSlide(index + 1)}
-            />
-            <figcaption>{item.title}</figcaption>
-          </figure>
-        );
-      } else {
-        return "";
+    youtubeVideoFiguresArray = playlistDataArray.map(
+      (item, index): React.JSX.Element | "" => {
+        if (item.title !== "Deleted video") {
+          return (
+            <figure className="youtube-video-figure" key={item.id}>
+              <img
+                alt={`Video ${index + 1} of ${playlistDataArray.length}`}
+                src={item.thumbnails.high.url}
+                className="youtube-video-image"
+                onClick={() => openLightboxOnSlide(index + 1)}
+              />
+              <figcaption>{item.title}</figcaption>
+            </figure>
+          );
+        } else {
+          return "";
+        }
       }
-    });
+    );
   }
 
   useEffect(() => {
     function saveInitialPlaylistAndURLDataArrayToState(): void {
       getPlaylistData(apiKey, playlistId)
         .then((items) => {
-          const urls = items.map((item) => {
+          const urls = items.map((item): string => {
             return `https://www.youtube.com/watch?v=${item.resourceId.videoId}`;
           });
           setUrls(urls);
