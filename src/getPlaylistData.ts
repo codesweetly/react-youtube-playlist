@@ -1,23 +1,4 @@
-interface PlaylistDataItem {
-  id: string;
-  snippet: {
-    title: string;
-    thumbnails: {
-      high: {
-        url: string;
-      };
-    };
-    resourceId: { videoId: string };
-  };
-}
-
-interface FetchedData {
-  items: [];
-  nextPageToken: string;
-  pageInfo: {
-    totalResults: number;
-  };
-}
+import { FetchedData, PlaylistDataItem } from "./getPlaylistData.types";
 
 async function getPlaylistData(
   apiKey: string,

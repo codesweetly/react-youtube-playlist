@@ -1,33 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { BallTriangle } from "react-loader-spinner";
+import {
+  YouTubePlaylistPropsType,
+  PlaylistData,
+} from "./YouTubePlaylist.types";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
 import "../index.css";
-
-interface YouTubePlaylistPropsType {
-  apiKey: string;
-  playlistId: string;
-  uniqueName: string;
-}
-
-interface PlaylistData {
-  id: string;
-  title: string;
-  thumbnails: {
-    high: {
-      url: string;
-    };
-  };
-  resourceId: { videoId: string };
-  nextPageToken: string;
-  totalVideosAvailable: number;
-}
 
 function YouTubePlaylist({
   apiKey,
   playlistId,
   uniqueName,
-}: YouTubePlaylistPropsType): React.JSX.Element {
+}: YouTubePlaylistPropsType) {
   const [urls, setUrls] = useState([]);
   const [playlistDataArray, setPlaylistDataArray] = useState<
     PlaylistData[] | null
@@ -50,7 +35,7 @@ function YouTubePlaylist({
     });
   }
 
-  function saveSubsequentPlaylistAndURLDataArrayToState(): void {
+  function saveSubsequentPlaylistAndURLDataArrayToState() {
     if (playlistDataArray) {
       const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
       getPlaylistData(apiKey, playlistId, lastGalleryItem.nextPageToken)
@@ -68,7 +53,7 @@ function YouTubePlaylist({
     }
   }
 
-  function handleScroll(): void {
+  function handleScroll() {
     if (playlistDataArray && youtubeVideoFiguresArray) {
       const playlistGalleryDiv = document.getElementById(uniqueNameParsed);
       const galleryHeight = playlistGalleryDiv.clientHeight;
@@ -93,32 +78,30 @@ function YouTubePlaylist({
   }
 
   if (playlistDataArray) {
-    youtubeVideoFiguresArray = playlistDataArray.map(
-      (item, index): React.JSX.Element | "" => {
-        if (item.title !== "Deleted video") {
-          return (
-            <figure className="youtube-video-figure" key={item.id}>
-              <img
-                alt={`Video ${index + 1} of ${playlistDataArray.length}`}
-                src={item.thumbnails.high.url}
-                className="youtube-video-image"
-                onClick={() => openLightboxOnSlide(index + 1)}
-              />
-              <figcaption>{item.title}</figcaption>
-            </figure>
-          );
-        } else {
-          return "";
-        }
+    youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
+      if (item.title !== "Deleted video") {
+        return (
+          <figure className="youtube-video-figure" key={item.id}>
+            <img
+              alt={`Video ${index + 1} of ${playlistDataArray.length}`}
+              src={item.thumbnails.high.url}
+              className="youtube-video-image"
+              onClick={() => openLightboxOnSlide(index + 1)}
+            />
+            <figcaption>{item.title}</figcaption>
+          </figure>
+        );
+      } else {
+        return "";
       }
-    );
+    });
   }
 
   useEffect(() => {
-    function saveInitialPlaylistAndURLDataArrayToState(): void {
+    function saveInitialPlaylistAndURLDataArrayToState() {
       getPlaylistData(apiKey, playlistId)
         .then((items) => {
-          const urls = items.map((item): string => {
+          const urls = items.map((item) => {
             return `https://www.youtube.com/watch?v=${item.resourceId.videoId}`;
           });
           setUrls(urls);
