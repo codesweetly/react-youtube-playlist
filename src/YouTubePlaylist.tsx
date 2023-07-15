@@ -36,21 +36,19 @@ function YouTubePlaylist({
   }
 
   function saveSubsequentPlaylistAndURLDataArrayToState() {
-    if (playlistDataArray) {
-      const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
-      getPlaylistData(apiKey, playlistId, lastGalleryItem.nextPageToken)
-        .then((newData) => {
-          const newUrls = newData.map((data) => {
-            return `https://www.youtube.com/watch?v=${data.resourceId.videoId}`;
-          });
-          setUrls([...urls, ...newUrls]);
-          setPlaylistDataArray([...playlistDataArray, ...newData]);
-        })
-        .catch((e) =>
-          console.error(`Error getting next page playlist data: ${e}`)
-        );
-      setIsNotFetchingData(true);
-    }
+    const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
+    getPlaylistData(apiKey, playlistId, lastGalleryItem.nextPageToken)
+      .then((newData) => {
+        const newUrls = newData.map((data) => {
+          return `https://www.youtube.com/watch?v=${data.resourceId.videoId}`;
+        });
+        setUrls([...urls, ...newUrls]);
+        setPlaylistDataArray([...playlistDataArray, ...newData]);
+      })
+      .catch((e) =>
+        console.error(`Error getting next page playlist data: ${e}`)
+      );
+    setIsNotFetchingData(true);
   }
 
   function handleScroll() {

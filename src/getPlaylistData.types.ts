@@ -1,5 +1,5 @@
 export interface FetchedData {
-  items: [];
+  items: PlaylistDataItem[];
   nextPageToken: string;
   pageInfo: {
     totalResults: number;

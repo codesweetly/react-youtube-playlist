@@ -14,7 +14,7 @@ async function getPlaylistData(
     }&key=${apiKey}`
   );
 
-  const data = await fetchedPlaylist.json();
+  const data: FetchedData = await fetchedPlaylist.json();
   const { items, nextPageToken, pageInfo }: FetchedData = data;
   const totalVideosAvailable = pageInfo.totalResults;
   const playlistData = items.map((i: PlaylistDataItem) => {

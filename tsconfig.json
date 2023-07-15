@@ -7,6 +7,11 @@
     "jsx": "preserve",
     "moduleResolution": "node",
     "target": "es6",
-    "outDir": "lib"
+    "outDir": "dist",
+    "removeComments": true,
+    "noEmitOnError": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true
   }
 }
