@@ -22,6 +22,12 @@ Using yarn:
 yarn add @codesweetly/react-youtube-playlist
 ```
 
+Using pnpm:
+
+```
+pnpm add @codesweetly/react-youtube-playlist
+```
+
 ## Usage
 
 ```js
@@ -44,23 +50,29 @@ function App() {
 <thead>
 <tr>
 <th>Props</th>
+<th>Type</th>
+<th>Default</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>apiKey</code></td>
+<td>string</td>
+<td><code>undefined</code></td>
 <td>
 
-The `apiKey` props is a string value that specifies your project's YouTube API key. ([Learn how to get an API key](https://youtu.be/N18czV5tj5o))
+**(Required)** Your project's YouTube API key. ([Learn how to get an API key](https://youtu.be/N18czV5tj5o))
 
 </td>
 </tr>
 <tr>
 <td><code>playlistId</code></td>
+<td>string</td>
+<td><code>undefined</code></td>
 <td>
 
-The `playlistId` props is a string value that specifies the ID of the YouTube playlist you wish to display.
+**(Required)** The ID of the YouTube playlist you wish to display.
 
 **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](https://codesweetly.com/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
 
@@ -68,9 +80,11 @@ The `playlistId` props is a string value that specifies the ID of the YouTube pl
 </tr>
 <tr>
 <td><code>uniqueName</code></td>
+<td>string</td>
+<td><code>undefined</code></td>
 <td>
 
-The `uniqueName` props is a string value that specifies a unique name for the `<YouTubePlaylist>` instance.
+**(Required)** A unique name for the `<YouTubePlaylist>` instance.
 
 **Note:**
 
