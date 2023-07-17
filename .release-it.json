@@ -1,0 +1,26 @@
+{
+  "git": {
+    "commitMessage": "chore: Release v${version}"
+  },
+  "github": {
+    "release": true,
+    "tokenRef": "RELEASE_IT_GITHUB_TOKEN"
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          { "type": "build", "section": "🔨 Underlying Tools" },
+          { "type": "chore", "section": "🏠 Internal" },
+          { "type": "docs", "section": "📝 Documentation" },
+          { "type": "feat", "section": "🚀 New Feature" },
+          { "type": "fix", "section": "🐛 Bug Fix" },
+          { "type": "perf", "section": "💅 Enhancement" }
+        ]
+      }
+    }
+  }
+}

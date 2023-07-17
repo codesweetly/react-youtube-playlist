@@ -19,10 +19,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.husky
-.release-it.json
-babel.config.json
-commitlint.config.js
-
 # Local Netlify folder
 .netlify
