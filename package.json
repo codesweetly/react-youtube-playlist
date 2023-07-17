@@ -12,6 +12,10 @@
     "release": "dotenv release-it --",
     "test": "jest --config jestconfig.json"
   },
+  "files": [
+    "index.css",
+    "./dist"
+  ],
   "keywords": [
     "react",
     "youtube",
@@ -19,8 +23,7 @@
     "player",
     "gallery",
     "video",
-    "lightbox",
-    "docusaurus"
+    "lightbox"
   ],
   "repository": {
     "type": "git",
