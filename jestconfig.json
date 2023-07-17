@@ -1,4 +1,8 @@
 {
   "testEnvironment": "jsdom",
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
+  "transform": {
+    "\\.[jt]sx?$": "babel-jest",
+    "^.+\\.css$": "jest-transform-css"
+  }
 }
