@@ -1,18 +1,20 @@
-const path = require("path");
 const { VanillaExtractPlugin } = require("@vanilla-extract/webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: "YouTubePlaylist.tsx",
-  context: path.resolve(__dirname, "src"),
+  entry: "./src/YouTubePlaylist.tsx",
   output: {
     clean: true,
   },
+  mode: "production",
   plugins: [new VanillaExtractPlugin(), new MiniCssExtractPlugin()],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js", ".jsx"],
+  },
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(ts|tsx|js|jsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
