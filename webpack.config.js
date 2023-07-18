@@ -10,7 +10,7 @@ module.exports = {
   },
   plugins: [new VanillaExtractPlugin(), new MiniCssExtractPlugin()],
   module: {
-    rule: [
+    rules: [
       {
         test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
