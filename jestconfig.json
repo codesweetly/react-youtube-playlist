@@ -1,7 +1,0 @@
-{
-  "testEnvironment": "jsdom",
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"],
-  "transform": {
-    "^.+\\.css$": "jest-transform-css"
-  }
-}
