@@ -13,22 +13,17 @@ export const youtubeVideoFigure = style({
 export const youtubeVideoImage = style({
   width: "100%",
   cursor: "pointer",
-  selectors: {
-    "& + figcaption": {
-      paddingBottom: "2.2rem",
-      textAlign: "left",
-      fontWeight: 600,
-      color: "inherit",
-    },
-  },
+});
+
+export const youtubeVideoCaption = style({
+  paddingBottom: "2.2rem",
+  textAlign: "left",
+  fontWeight: 600,
+  color: "inherit",
   "@media": {
     /* For tablets and desktops: */
-    "screen and (min-width: 600px)": {
-      selectors: {
-        "& + figcaption": {
-          paddingBottom: "2.5rem",
-        },
-      },
+    "only screen and (min-width: 600px)": {
+      paddingBottom: "2.5rem",
     },
   },
 });

@@ -86,7 +86,9 @@ function YouTubePlaylist({
               className={styles.youtubeVideoImage}
               onClick={() => openLightboxOnSlide(index + 1)}
             />
-            <figcaption>{item.title}</figcaption>
+            <figcaption className={styles.youtubeVideoCaption}>
+              {item.title}
+            </figcaption>
           </figure>
         );
       } else {

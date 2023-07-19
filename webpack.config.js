@@ -3,8 +3,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/YouTubePlaylist.tsx",
+  experiments: {
+    outputModule: true,
+  },
   output: {
     clean: true,
+    library: {
+      type: "module",
+    },
   },
   mode: "production",
   plugins: [new VanillaExtractPlugin(), new MiniCssExtractPlugin()],
@@ -14,7 +20,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx|js|jsx)$/,
+        test: /\.(ts|tsx)$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
