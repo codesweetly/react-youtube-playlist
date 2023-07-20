@@ -10,7 +10,7 @@ function YouTubePlaylist({
   playlistId,
   uniqueName,
 }: YouTubePlaylistPropsType) {
-  const [urls, setUrls] = useState([]);
+  const [urls, setUrls] = useState<string[]>([]);
   const [playlistDataArray, setPlaylistDataArray] = useState<
     PlaylistData[] | null
   >(null);
@@ -23,7 +23,7 @@ function YouTubePlaylist({
     slide: 1,
   });
 
-  let youtubeVideoFiguresArray = null;
+  let youtubeVideoFiguresArray: (React.JSX.Element | "")[] | null = null;
 
   function openLightboxOnSlide(number: number) {
     setLightboxController({
@@ -33,41 +33,50 @@ function YouTubePlaylist({
   }
 
   function saveSubsequentPlaylistAndURLDataArrayToState() {
-    const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
-    getPlaylistData(apiKey, playlistId, lastGalleryItem.nextPageToken)
-      .then((newData) => {
-        const newUrls = newData.map((data) => {
-          return `https://www.youtube.com/watch?v=${data.resourceId.videoId}`;
-        });
-        setUrls([...urls, ...newUrls]);
-        setPlaylistDataArray([...playlistDataArray, ...newData]);
-      })
-      .catch((e) =>
-        console.error(`Error getting next page playlist data: ${e}`)
-      );
-    setIsNotFetchingData(true);
+    if (playlistDataArray) {
+      const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
+      getPlaylistData(apiKey, playlistId, lastGalleryItem.nextPageToken)
+        .then((newData) => {
+          const newUrls = newData.map((data) => {
+            return `https://www.youtube.com/watch?v=${data.resourceId.videoId}`;
+          });
+          setUrls([...urls, ...newUrls]);
+          setPlaylistDataArray([...playlistDataArray, ...newData]);
+        })
+        .catch((e) =>
+          console.error(`Error getting next page playlist data: ${e}`)
+        );
+      setIsNotFetchingData(true);
+    }
   }
 
   function handleScroll() {
     if (playlistDataArray && youtubeVideoFiguresArray) {
       const playlistGalleryDiv = document.getElementById(uniqueNameParsed);
-      const galleryHeight = playlistGalleryDiv.clientHeight;
+      const galleryHeight = playlistGalleryDiv?.clientHeight;
       const viewportHeight = window.document.documentElement.clientHeight;
       const viewportLengthScrolled = window.document.documentElement.scrollTop;
-      const galleryHeightIsGreaterThanViewport = galleryHeight > viewportHeight;
-      const heightAboveGallery = playlistGalleryDiv.offsetTop;
-      const totalGalleryScrollableHeight = galleryHeightIsGreaterThanViewport
-        ? galleryHeight - viewportHeight + heightAboveGallery
-        : 0;
-      const remainingGalleryScrollableHeight =
-        totalGalleryScrollableHeight - viewportLengthScrolled;
-      const scrolledToGalleryBottom = remainingGalleryScrollableHeight <= 0;
-      const moreVideosAvailable =
-        playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
+      if (galleryHeight) {
+        const galleryHeightIsGreaterThanViewport =
+          galleryHeight > viewportHeight;
+        const heightAboveGallery = playlistGalleryDiv.offsetTop;
+        const totalGalleryScrollableHeight = galleryHeightIsGreaterThanViewport
+          ? galleryHeight - viewportHeight + heightAboveGallery
+          : 0;
+        const remainingGalleryScrollableHeight =
+          totalGalleryScrollableHeight - viewportLengthScrolled;
+        const scrolledToGalleryBottom = remainingGalleryScrollableHeight <= 0;
+        const moreVideosAvailable =
+          playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
 
-      if (scrolledToGalleryBottom && moreVideosAvailable && isNotFetchingData) {
-        setIsNotFetchingData(false);
-        saveSubsequentPlaylistAndURLDataArrayToState();
+        if (
+          scrolledToGalleryBottom &&
+          moreVideosAvailable &&
+          isNotFetchingData
+        ) {
+          setIsNotFetchingData(false);
+          saveSubsequentPlaylistAndURLDataArrayToState();
+        }
       }
     }
   }
