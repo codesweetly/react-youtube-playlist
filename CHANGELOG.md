@@ -1,5 +1,47 @@
 # Changelog
 
+## [1.0.9](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.8...v1.0.9) (2023-07-20)
+
+
+### 🐛 Bug Fix
+
+* Rename module.rule to module.rules ([e685f67](https://github.com/codesweetly/react-youtube-playlist/commit/e685f67fab646c2e2f3791bdc294a1d85afa42d0))
+
+
+### 💅 Styling and Formatting
+
+* Add class to figcaption ([6d256e7](https://github.com/codesweetly/react-youtube-playlist/commit/6d256e7a979b92af8f48892de5e2e17558a122dc))
+* Declare css modules type ([b779e3c](https://github.com/codesweetly/react-youtube-playlist/commit/b779e3c0a1d2fc9589f55513f6cfb0ba9fc08c41))
+
+
+### 🧪 Code Testing
+
+* Configure jest as the testing tool ([83221fb](https://github.com/codesweetly/react-youtube-playlist/commit/83221fbe7e741c11753af074e1f2b536563496f0))
+* Remove jest configurations ([fe691ba](https://github.com/codesweetly/react-youtube-playlist/commit/fe691baa34646b4a1283e49dec46fe7d37d2ef56))
+
+
+### 🧱 Dependency
+
+* Change target to es5 ([ad790cb](https://github.com/codesweetly/react-youtube-playlist/commit/ad790cb19180c518c24a2d555ef1c6d1231d5e7e))
+* Delete vanilla-extract configurations ([1040a65](https://github.com/codesweetly/react-youtube-playlist/commit/1040a65150df9025ed72237df436d00fcf1b5a7f))
+* Install webpack for bundling modules ([b0339ff](https://github.com/codesweetly/react-youtube-playlist/commit/b0339ff223af76031d80b614241fc6ec8d6577d0))
+* Remove babel configurations ([00bc7d7](https://github.com/codesweetly/react-youtube-playlist/commit/00bc7d70ef1f4991d5f16fd7ac0c6d76d2a30203))
+* Setup vanilla-extract to generate static css at build time ([875c39e](https://github.com/codesweetly/react-youtube-playlist/commit/875c39efc4c89bf7d2ae5b74e705578a94031351))
+* Update typescript configuration ([dfa0aa3](https://github.com/codesweetly/react-youtube-playlist/commit/dfa0aa332414c973b2e7641339a760902b4aad5c))
+
+
+### 🏠 Chores
+
+* Add css module to the files field ([8cf09e6](https://github.com/codesweetly/react-youtube-playlist/commit/8cf09e6d5e10916a83f3e256f8bb4e8f2fc4be05))
+* Change stylesheet to css module ([91d0a07](https://github.com/codesweetly/react-youtube-playlist/commit/91d0a070723c2f676871f785d6dafbebbaad5b73))
+* Configure webpack to bundle typescript files ([36e2d13](https://github.com/codesweetly/react-youtube-playlist/commit/36e2d136b3ca9ccc3fe6441c42f0091a4ae81936))
+* Configure webpack to bundle vanilla-extract's css files ([1fe9795](https://github.com/codesweetly/react-youtube-playlist/commit/1fe9795cbdd4c1189dd498197c0d8013b034976f))
+* Define variables' types ([3a899ad](https://github.com/codesweetly/react-youtube-playlist/commit/3a899ad901c9c98b2b701b6c6bf134d80f49a713))
+* Rename YouTubePlaylist file to index ([1f6425c](https://github.com/codesweetly/react-youtube-playlist/commit/1f6425c8e6c992e75e700e4892e8e99885666f4e))
+* Resolve import statements with typescript and javascript extensions ([9f7b6ce](https://github.com/codesweetly/react-youtube-playlist/commit/9f7b6ced115ceb89acf2d7916b6ea1db1352f3dc))
+* Use typescript to compile source code ([68dc1a6](https://github.com/codesweetly/react-youtube-playlist/commit/68dc1a610d2903c364633d756e289b11fbdb4a18))
+* Use typescript to transpile and type check ([e107610](https://github.com/codesweetly/react-youtube-playlist/commit/e107610e441f7df9d80b5b560f94a4ad7eeb6037))
+
 ## [1.0.8](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.7...v1.0.8) (2023-07-18)
 
 

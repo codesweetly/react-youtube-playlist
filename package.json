@@ -1,6 +1,6 @@
 {
   "name": "@codesweetly/react-youtube-playlist",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "An easy-to-use and responsive React component for displaying YouTube playlists on a web app.",
   "homepage": "https://codesweetly.com/react-youtube-playlist",
   "main": "./dist/index.js",
