@@ -3,7 +3,7 @@ import { BallTriangle } from "react-loader-spinner";
 import { YouTubePlaylistPropsType, PlaylistData } from "./index.types";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
-import "../index.css";
+import styles from "../index.module.css";
 
 function YouTubePlaylist({
   apiKey,
@@ -85,14 +85,16 @@ function YouTubePlaylist({
     youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video") {
         return (
-          <figure className="youtube-video-figure" key={item.id}>
+          <figure className={styles.youtubeVideoFigure} key={item.id}>
             <img
               alt={`Video ${index + 1} of ${playlistDataArray.length}`}
               src={item.thumbnails.high.url}
-              className="youtube-video-image"
+              className={styles.youtubeVideoImage}
               onClick={() => openLightboxOnSlide(index + 1)}
             />
-            <figcaption>{item.title}</figcaption>
+            <figcaption className={styles.youtubeVideoCaption}>
+              {item.title}
+            </figcaption>
           </figure>
         );
       } else {
@@ -124,7 +126,7 @@ function YouTubePlaylist({
   });
 
   return (
-    <div id={uniqueNameParsed} className="playlist-gallery-div">
+    <div id={uniqueNameParsed} className={styles.playlistGalleryDiv}>
       {playlistDataArray && uniqueName ? (
         youtubeVideoFiguresArray
       ) : (
