@@ -13,7 +13,7 @@
     "release": "dotenv release-it --"
   },
   "files": [
-    "index.css",
+    "index.module.css",
     "./dist"
   ],
   "keywords": [
