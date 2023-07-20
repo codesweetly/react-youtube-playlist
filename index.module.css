@@ -1,0 +1,28 @@
+.playlistGalleryDiv {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-gap: 0 1rem;
+}
+
+.youtubeVideoFigure {
+  margin: 0;
+}
+
+.youtubeVideoImage {
+  width: 100%;
+  cursor: pointer;
+}
+
+.youtubeVideoCaption {
+  padding-bottom: 2.2rem;
+  text-align: left;
+  font-weight: 600;
+  color: inherit;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets and desktops: */
+  .youtubeVideoCaption {
+    padding-bottom: 2.5rem;
+  }
+}
