@@ -83,7 +83,7 @@ function YouTubePlaylist({
 
   if (playlistDataArray) {
     youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
-      if (item.title !== "Deleted video") {
+      if (item.title !== "Deleted video" && item.title !== "Private video") {
         return (
           <figure className={styles.youtubeVideoFigure} key={item.id}>
             <img
