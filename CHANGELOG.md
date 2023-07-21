@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.10](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.9...v1.0.10) (2023-07-21)
+
+
+### 🐛 Bug Fix
+
+* Ignore private videos ([a0e2526](https://github.com/codesweetly/react-youtube-playlist/commit/a0e25269c950e966779959f94baf5dcb1f17cea9))
+
 ## [1.0.9](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.8...v1.0.9) (2023-07-20)
 
 
