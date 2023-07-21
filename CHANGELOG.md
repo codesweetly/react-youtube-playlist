@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.11](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.10...v1.0.11) (2023-07-21)
+
+
+### 📝 Documentation
+
+* Add configuration note for remix users ([d0d7502](https://github.com/codesweetly/react-youtube-playlist/commit/d0d7502ccb9b152fe971a07ee01d8541ca81f38c))
+
 ## [1.0.10](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.9...v1.0.10) (2023-07-21)
 
 
