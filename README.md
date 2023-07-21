@@ -95,3 +95,18 @@ function App() {
 </tr>
 </tbody>
 </table>
+
+## Note for Remix Users
+
+[Remix](https://remix.run/docs/en/1.19.0) users should add `"@codesweetly/react-youtube-playlist"` to their `remix.config.js` file:
+
+```diff
+/** @type {import('@remix-run/dev').AppConfig} */
+module.exports = {
+  ignoredRouteFiles: ["**/.*"],
++ serverDependenciesToBundle: ["@codesweetly/react-youtube-playlist"],
+  serverModuleFormat: "cjs",
+};
+```
+
+The [`serverDependenciesToBundle`](https://remix.run/docs/en/1.19.0/file-conventions/remix-config#serverdependenciestobundle) field tells Remix to transpile and include the `"@codesweetly/react-youtube-playlist"` package in the server bundle.
