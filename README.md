@@ -110,3 +110,17 @@ module.exports = {
 ```
 
 The [`serverDependenciesToBundle`](https://remix.run/docs/en/1.19.0/file-conventions/remix-config#serverdependenciestobundle) field tells Remix to transpile and include the `"@codesweetly/react-youtube-playlist"` package in the server bundle.
+
+### Note for NextJS users
+
+[NextJS](https://nextjs.org/) users should declare the [`"use client"`](https://nextjs.org/docs/getting-started/react-essentials#the-use-client-directive) directive at the top of their file. It should sit above all other `import` statements like so:
+
+```diff
++ "use client";
+import YouTubePlaylist from "@codesweetly/react-youtube-playlist";
+import ImageGallery from "react-image-grid-gallery";
+```
+
+The `"use client"` directive tells NextJS to consider all modules imported into the page as part of the Client Component module graph.
+
+The `YouTubePlaylist` package works only as a Client Component because it uses React's State and Lifecycle effects, such as `useState()` and `useEffect()`.
