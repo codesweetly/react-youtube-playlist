@@ -124,3 +124,20 @@ import ImageGallery from "react-image-grid-gallery";
 The `"use client"` directive tells NextJS to consider all modules imported into the page as part of the Client Component module graph.
 
 The `YouTubePlaylist` package works only as a Client Component because it uses React's State and Lifecycle effects, such as `useState()` and `useEffect()`.
+
+## Build
+
+```diff
+npm run build
+```
+
+## Dependencies
+
+- [fslightbox-react](https://www.npmjs.com/package/fslightbox-react)
+- [prop-types](https://www.npmjs.com/package/prop-types)
+- [react](https://www.npmjs.com/package/react)
+- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
+
+## Demo
+
+https://codesweetly.com/react-youtube-playlist
