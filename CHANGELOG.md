@@ -1,5 +1,27 @@
 # Changelog
 
+## [1.0.14](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.13...v1.0.14) (2023-08-15)
+
+
+### 🏠 Chores
+
+* Add script to copy stylesheet to dist during build step ([0dbeea3](https://github.com/codesweetly/react-youtube-playlist/commit/0dbeea315e80f5cc50136bda7bc0fe87e308d211))
+* Configure build script to emit es and commonjs modules ([073e0fb](https://github.com/codesweetly/react-youtube-playlist/commit/073e0fb8ff5ec4633afa692fd00004a60e1cf716))
+* Emit es modules compilations to dist/esm ([7990c37](https://github.com/codesweetly/react-youtube-playlist/commit/7990c37ec01b495449501a7a9c822007ce362c48))
+* Empty dist before each build ([2bf2fd3](https://github.com/codesweetly/react-youtube-playlist/commit/2bf2fd3f1c2cc93702222939ac56f51262a269eb))
+* Exclude test files from compilation ([d08a710](https://github.com/codesweetly/react-youtube-playlist/commit/d08a710f89750208b3135eec734d62550481005f))
+* Move stylesheet to src ([6731f1d](https://github.com/codesweetly/react-youtube-playlist/commit/6731f1da1a4399d87cdbb866446b95d40a05fbf1))
+* Remove stylesheet from files list ([3bfe802](https://github.com/codesweetly/react-youtube-playlist/commit/3bfe8023117e85bd142248147b37d0e58226d840))
+* Update main field to reference the cjs compilation ([c843a78](https://github.com/codesweetly/react-youtube-playlist/commit/c843a78ffd091ea852c732f86e4a0351242ed55e))
+* Update types to reference the es module's declaration file ([691386d](https://github.com/codesweetly/react-youtube-playlist/commit/691386d9122a9d4f71c396fa908aabf8f85bb5e7))
+* Use module field to reference the es module compilation ([4e227e7](https://github.com/codesweetly/react-youtube-playlist/commit/4e227e706a83c6b4d2af32c731cbf8e908152a03))
+
+
+### 📝 Documentation
+
+* Add build section ([9a6788b](https://github.com/codesweetly/react-youtube-playlist/commit/9a6788b6355f53a67e358f810984e45acff26d91))
+* Update urls ([fd9a793](https://github.com/codesweetly/react-youtube-playlist/commit/fd9a793dfbd83cb9accc54db3b181d0a9236ae40))
+
 ## [1.0.11](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.10...v1.0.11) (2023-07-21)
 
 
