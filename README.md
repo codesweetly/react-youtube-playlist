@@ -133,10 +133,10 @@ npm run build
 
 ## Dependencies
 
-- [fslightbox-react](https://www.npmjs.com/package/fslightbox-react)
-- [prop-types](https://www.npmjs.com/package/prop-types)
-- [react](https://www.npmjs.com/package/react)
-- [react-loader-spinner](https://www.npmjs.com/package/react-loader-spinner)
+- [fslightbox-react](https://github.com/banthagroup/fslightbox-react)
+- [prop-types](https://github.com/facebook/prop-types)
+- [react](https://github.com/facebook/react)
+- [react-loader-spinner](https://github.com/mhnpd/react-loader-spinner)
 
 ## Demo
 
