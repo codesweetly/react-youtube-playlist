@@ -9,7 +9,9 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "build": "rm -r dist && tsc",
+    "build": "rm -r dist && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc",
+    "build:cjs": "tsc --module commonjs --outDir dist/cjs",
     "release": "dotenv release-it --"
   },
   "files": [
