@@ -5,7 +5,7 @@
   "homepage": "https://codesweetly.com/react-youtube-playlist",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
-  "types": "./dist/index.d.ts",
+  "types": "./dist/esm/index.d.ts",
   "author": "Oluwatobi Sofela (https://www.codesweetly.com)",
   "license": "MIT",
   "scripts": {
