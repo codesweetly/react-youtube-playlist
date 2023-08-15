@@ -9,7 +9,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
-    "build": "tsc",
+    "build": "rm -r dist && tsc",
     "release": "dotenv release-it --"
   },
   "files": [
