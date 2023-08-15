@@ -5,7 +5,7 @@
     "target": "es5",
     "jsx": "react",
     "moduleResolution": "node",
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "strict": true,
     "declaration": true,
     "skipLibCheck": true,
