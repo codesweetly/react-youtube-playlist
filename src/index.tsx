@@ -3,7 +3,6 @@ import { BallTriangle } from "react-loader-spinner";
 import { YouTubePlaylistPropsType, PlaylistData } from "./index.types";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
-// import styles from "../index.module.css";
 import { css } from "@emotion/react";
 
 const playlistGalleryDiv = css({
