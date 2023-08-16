@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.15](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.14...v1.0.15) (2023-08-16)
+
+
+### 🧱 Dependency
+
+* Install @emotion/react ([416d057](https://github.com/codesweetly/react-youtube-playlist/commit/416d05733b82bc0931a9841ac1d85355116a465c))
+
+
+### 🔄️ Code Refactoring
+
+* Change jsx field from react to react-jsx ([c12043e](https://github.com/codesweetly/react-youtube-playlist/commit/c12043ec7eedf10b67a9eb25f46e63173c71fea5))
+
+
+### 💅 Styling and Formatting
+
+* Delete css modules stylesheet ([2ebd1ba](https://github.com/codesweetly/react-youtube-playlist/commit/2ebd1ba0584f184e68324f1faaa49d7a5867ad30))
+* Replace className with emotion's css prop ([0c701ea](https://github.com/codesweetly/react-youtube-playlist/commit/0c701eabbbe6ddac2a2832b90a0fddaffc09bf90))
+
+
+### 🏠 Chores
+
+* Delete copy-files script ([df149e6](https://github.com/codesweetly/react-youtube-playlist/commit/df149e678b1c6fd50b20c73d7613b614f8e700d7))
+* Use @emotion/react to import jsx factory functions ([2f06f20](https://github.com/codesweetly/react-youtube-playlist/commit/2f06f20e6c95834335645005e82ed53ee3e6ec87))
+
 ## [1.0.14](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.13...v1.0.14) (2023-08-15)
 
 
