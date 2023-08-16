@@ -1,3 +1,7 @@
+> **Important**
+>
+> Yarn users also need `@emotion/react@11.11.1` installation.
+
 # React YouTube Playlist
 
 An easy-to-use and responsive React component for displaying YouTube playlists on a web app. Create a beautiful gallery of YouTube videos.
