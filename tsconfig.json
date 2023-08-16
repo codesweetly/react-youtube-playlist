@@ -5,6 +5,7 @@
     "module": "esnext",
     "target": "es5",
     "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
     "moduleResolution": "node",
     "outDir": "dist/esm",
     "strict": true,
