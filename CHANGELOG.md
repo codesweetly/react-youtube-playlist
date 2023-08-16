@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.16](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.15...v1.0.16) (2023-08-16)
+
+
+### 📝 Documentation
+
+* Add notes on resolving known errors ([4a520b9](https://github.com/codesweetly/react-youtube-playlist/commit/4a520b99fcc6c55b866b1b969f6ddae93bc9dd66))
+
 ## [1.0.15](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.14...v1.0.15) (2023-08-16)
 
 
