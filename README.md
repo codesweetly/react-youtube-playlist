@@ -10,19 +10,41 @@ Available at: https://codesweetly.com/react-youtube-playlist
 
 ## Installation
 
-Using npm:
+This section shows how to install the React YouTube Playlist package.
+
+### Using npm
 
 ```
 npm install @codesweetly/react-youtube-playlist
 ```
 
-Using yarn:
+> **Note**
+>
+> Did you get an `'npm ERR! ERESOLVE unable to resolve dependency tree'` error?
+>
+> If yes, please add `--legacy-peer-deps` to your installation command like so:
+>
+> ```
+> npm install @codesweetly/react-youtube-playlist --legacy-peer-deps
+> ```
+
+### Using yarn
 
 ```
 yarn add @codesweetly/react-youtube-playlist
 ```
 
-Using pnpm:
+> **Note**
+>
+> Did you get a `Module not found: Error: Can't resolve '@emotion/react/jsx-runtime'` error?
+>
+> If yes, please install `@emotion/react@11.11.1`:
+>
+> ```
+> yarn add @emotion/react@11.11.1
+> ```
+
+### Using pnpm
 
 ```
 pnpm add @codesweetly/react-youtube-playlist
@@ -133,6 +155,7 @@ npm run build
 
 ## Dependencies
 
+- [emotion](https://github.com/emotion-js/emotion/)
 - [fslightbox-react](https://github.com/banthagroup/fslightbox-react)
 - [prop-types](https://github.com/facebook/prop-types)
 - [react](https://github.com/facebook/react)
