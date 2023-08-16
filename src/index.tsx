@@ -3,7 +3,34 @@ import { BallTriangle } from "react-loader-spinner";
 import { YouTubePlaylistPropsType, PlaylistData } from "./index.types";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
-import styles from "../index.module.css";
+// import styles from "../index.module.css";
+import { css } from "@emotion/react";
+
+const playlistGalleryDiv = css({
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+  gridGap: "0 1rem",
+});
+
+const youtubeVideoFigure = css({
+  margin: 0,
+});
+
+const youtubeVideoImage = css({
+  width: "100%",
+  cursor: "pointer",
+});
+
+const youtubeVideoCaption = css({
+  paddingBottom: "2.2rem",
+  textAlign: "left",
+  fontWeight: 600,
+  color: "inherit",
+  "@media only screen and (min-width: 600px)": {
+    /* For tablets and desktops: */
+    paddingBottom: "2.5rem",
+  },
+});
 
 function YouTubePlaylist({
   apiKey,
@@ -85,16 +112,14 @@ function YouTubePlaylist({
     youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video" && item.title !== "Private video") {
         return (
-          <figure className={styles.youtubeVideoFigure} key={item.id}>
+          <figure css={youtubeVideoFigure} key={item.id}>
             <img
               alt={`Video ${index + 1} of ${playlistDataArray.length}`}
               src={item.thumbnails.high.url}
-              className={styles.youtubeVideoImage}
+              css={youtubeVideoImage}
               onClick={() => openLightboxOnSlide(index + 1)}
             />
-            <figcaption className={styles.youtubeVideoCaption}>
-              {item.title}
-            </figcaption>
+            <figcaption css={youtubeVideoCaption}>{item.title}</figcaption>
           </figure>
         );
       } else {
@@ -126,7 +151,7 @@ function YouTubePlaylist({
   });
 
   return (
-    <div id={uniqueNameParsed} className={styles.playlistGalleryDiv}>
+    <div id={uniqueNameParsed} css={playlistGalleryDiv}>
       {playlistDataArray && uniqueName ? (
         youtubeVideoFiguresArray
       ) : (
