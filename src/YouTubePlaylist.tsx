@@ -13,7 +13,7 @@ const videoContainerStyle = new YouTubePlaylistStyles().videoContainerStyle;
 const videoImageStyle = new YouTubePlaylistStyles().videoImageStyle;
 const videoCaptionStyle = new YouTubePlaylistStyles().videoCaptionStyle;
 
-function YouTubePlaylist({
+export function YouTubePlaylist({
   apiKey,
   playlistId,
   uniqueName,
@@ -156,5 +156,3 @@ function YouTubePlaylist({
     </div>
   );
 }
-
-export default YouTubePlaylist;
