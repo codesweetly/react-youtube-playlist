@@ -9,7 +9,7 @@
   "author": "Oluwatobi Sofela (https://www.codesweetly.com)",
   "license": "MIT",
   "scripts": {
-    "test": "jest",
+    "test": "jest --config jest.config.ts",
     "build": "rm -r dist && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
