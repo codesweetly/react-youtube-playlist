@@ -4,7 +4,6 @@ const config: Config = {
   testEnvironment: "jsdom",
   transform: {
     "^.+\\.tsx?$": "ts-jest",
-    "^.+\\.css$": "jest-transform-css",
   },
 };
 
