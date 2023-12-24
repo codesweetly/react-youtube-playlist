@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { BallTriangle } from "react-loader-spinner";
-import { YouTubePlaylistPropsType, PlaylistData } from "./index.types";
+import {
+  YouTubePlaylistPropsType,
+  PlaylistData,
+} from "./YouTubePlaylist.types";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
 import { css } from "@emotion/react";
