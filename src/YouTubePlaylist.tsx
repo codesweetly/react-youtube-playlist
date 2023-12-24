@@ -4,35 +4,14 @@ import {
   YouTubePlaylistPropsType,
   PlaylistData,
 } from "./YouTubePlaylist.types";
+import { YouTubePlaylistStyles } from "./YouTubePlaylistStyles";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
-import { css } from "@emotion/react";
 
-const playlistGalleryDiv = css({
-  display: "grid",
-  gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-  gridGap: "0 1rem",
-});
-
-const youtubeVideoFigure = css({
-  margin: 0,
-});
-
-const youtubeVideoImage = css({
-  width: "100%",
-  cursor: "pointer",
-});
-
-const youtubeVideoCaption = css({
-  paddingBottom: "2.2rem",
-  textAlign: "left",
-  fontWeight: 600,
-  color: "inherit",
-  "@media only screen and (min-width: 600px)": {
-    /* For tablets and desktops: */
-    paddingBottom: "2.5rem",
-  },
-});
+const galleryContainerStyle = new YouTubePlaylistStyles().galleryContainerStyle;
+const videoContainerStyle = new YouTubePlaylistStyles().videoContainerStyle;
+const videoImageStyle = new YouTubePlaylistStyles().videoImageStyle;
+const videoCaptionStyle = new YouTubePlaylistStyles().videoCaptionStyle;
 
 function YouTubePlaylist({
   apiKey,
@@ -114,14 +93,14 @@ function YouTubePlaylist({
     youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video" && item.title !== "Private video") {
         return (
-          <figure css={youtubeVideoFigure} key={item.id}>
+          <figure style={videoContainerStyle} key={item.id}>
             <img
               alt={`Video ${index + 1} of ${playlistDataArray.length}`}
               src={item.thumbnails.high.url}
-              css={youtubeVideoImage}
+              style={videoImageStyle}
               onClick={() => openLightboxOnSlide(index + 1)}
             />
-            <figcaption css={youtubeVideoCaption}>{item.title}</figcaption>
+            <figcaption style={videoCaptionStyle}>{item.title}</figcaption>
           </figure>
         );
       } else {
@@ -153,7 +132,7 @@ function YouTubePlaylist({
   });
 
   return (
-    <div id={uniqueNameParsed} css={playlistGalleryDiv}>
+    <div id={uniqueNameParsed} style={galleryContainerStyle}>
       {playlistDataArray && uniqueName ? (
         youtubeVideoFiguresArray
       ) : (
