@@ -140,7 +140,7 @@ export function YouTubePlaylist({
           height={100}
           width={100}
           radius={5}
-          color="#4fa94d"
+          color="#bf00ff"
           ariaLabel="ball-triangle-loading"
           wrapperStyle={{ justifyContent: "center", paddingBlock: "90px" }}
           visible={true}
