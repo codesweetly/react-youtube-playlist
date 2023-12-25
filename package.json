@@ -3,9 +3,9 @@
   "version": "1.0.16",
   "description": "An easy-to-use and responsive React component for displaying YouTube playlists on a web app.",
   "homepage": "https://codesweetly.com/react-youtube-playlist",
-  "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
+  "main": "./dist/cjs/YouTubePlaylist.js",
+  "module": "./dist/esm/YouTubePlaylist.js",
+  "types": "./dist/esm/YouTubePlaylist.d.ts",
   "author": "Oluwatobi Sofela (https://www.codesweetly.com)",
   "license": "MIT",
   "scripts": {
