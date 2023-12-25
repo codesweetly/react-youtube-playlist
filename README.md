@@ -1,7 +1,3 @@
-> **Important**
->
-> Yarn users also need `@emotion/react@11.11.1` installation.
-
 # React YouTube Playlist
 
 An easy-to-use and responsive React component for displaying YouTube playlists on a web app. Create a beautiful gallery of YouTube videos.
@@ -22,31 +18,11 @@ This section shows how to install the React YouTube Playlist package.
 npm install @codesweetly/react-youtube-playlist
 ```
 
-> **Note**
->
-> Did you get an `'npm ERR! ERESOLVE unable to resolve dependency tree'` error?
->
-> If yes, please add `--legacy-peer-deps` to your installation command like so:
->
-> ```
-> npm install @codesweetly/react-youtube-playlist --legacy-peer-deps
-> ```
-
 ### Using yarn
 
 ```
 yarn add @codesweetly/react-youtube-playlist
 ```
-
-> **Note**
->
-> Did you get a `Module not found: Error: Can't resolve '@emotion/react/jsx-runtime'` error?
->
-> If yes, please install `@emotion/react@11.11.1`:
->
-> ```
-> yarn add @emotion/react@11.11.1
-> ```
 
 ### Using pnpm
 
@@ -57,7 +33,7 @@ pnpm add @codesweetly/react-youtube-playlist
 ## Usage
 
 ```js
-import YouTubePlaylist from "@codesweetly/react-youtube-playlist";
+import { YouTubePlaylist } from "@codesweetly/react-youtube-playlist";
 
 function App() {
   return (
@@ -149,7 +125,7 @@ import ImageGallery from "react-image-grid-gallery";
 
 The `"use client"` directive tells NextJS to consider all modules imported into the page as part of the Client Component module graph.
 
-The `YouTubePlaylist` package works only as a Client Component because it uses React's State and Lifecycle effects, such as `useState()` and `useEffect()`.
+The `YouTubePlaylist` package works _only_ as a Client Component because it uses React's State and Lifecycle effects, such as `useState()` and `useEffect()`.
 
 ## Build
 
@@ -159,7 +135,6 @@ npm run build
 
 ## Dependencies
 
-- [emotion](https://github.com/emotion-js/emotion/)
 - [fslightbox-react](https://github.com/banthagroup/fslightbox-react)
 - [prop-types](https://github.com/facebook/prop-types)
 - [react](https://github.com/facebook/react)
