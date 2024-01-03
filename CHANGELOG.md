@@ -1,5 +1,59 @@
 # Changelog
 
+## [2.0.0](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.16...v2.0.0) (2024-01-03)
+
+
+### ⚠ BREAKING CHANGES
+
+* Users must now use named importation to add the package to their apps.
+
+Named importation provides better compatibility with node and babel-like tools.
+
+Ref: https://esbuild.github.io/content-types/#default-interop
+
+### 🧱 Dependency
+
+* Bump @types/react to v18.2.46 ([95b9c9e](https://github.com/codesweetly/react-youtube-playlist/commit/95b9c9e6e749db0ce19c755f816f801e4ad62b74))
+* Configure jest to read typescript configuration files ([e514fc4](https://github.com/codesweetly/react-youtube-playlist/commit/e514fc4b19e80d8992d008ef58d9c1f707266e8c))
+* Remove emotionjs package ([94e5ee2](https://github.com/codesweetly/react-youtube-playlist/commit/94e5ee206153321061f1add05317287b42596e72))
+* Remove jest-transform-css configurations ([f5ee273](https://github.com/codesweetly/react-youtube-playlist/commit/f5ee273bcc6597f29fc5e996290d4d99957dd3c9))
+
+
+### 🏠 Chores
+
+* Add email ([e4ac718](https://github.com/codesweetly/react-youtube-playlist/commit/e4ac7183809965b1d12005c5f6346e3a619acf32))
+* Change commitlint configuration file to typescript ([a4a356a](https://github.com/codesweetly/react-youtube-playlist/commit/a4a356a9669d7315c57aa0e7d0a37242da0ac252))
+* Change entry point from index to YouTubePlaylist ([2634c14](https://github.com/codesweetly/react-youtube-playlist/commit/2634c145614dc3ef0e346826b2c51449932b2076))
+* Delete css modules type declaration file ([7aa8ec4](https://github.com/codesweetly/react-youtube-playlist/commit/7aa8ec4854506161dd103b6728536590df3eb323))
+* Provide url and email for reporting bugs ([914a125](https://github.com/codesweetly/react-youtube-playlist/commit/914a1254516afff1226bc0431a0ba0f6c0791510))
+
+
+### 📝 Documentation
+
+* Add contact email ([95dbc01](https://github.com/codesweetly/react-youtube-playlist/commit/95dbc01cb76c35fcb109bddfeb5656707180df58))
+* Add emotion installation note for yarn users ([354a365](https://github.com/codesweetly/react-youtube-playlist/commit/354a36582c9e5a1fb48577429cf2346d0fcea2c7))
+* Remove emotionjs references and change import statement to named importation ([501bd0c](https://github.com/codesweetly/react-youtube-playlist/commit/501bd0c3015fc177a16f697d49f7a7d9382360a9))
+* Update license's year ([081b997](https://github.com/codesweetly/react-youtube-playlist/commit/081b997bdf9c27db30def79ed0dd24abd47a7ed3))
+
+
+### 🔄️ Code Refactoring
+
+* Change package's export mode from default to named exportation ([9a0885d](https://github.com/codesweetly/react-youtube-playlist/commit/9a0885ddcc13dbd9414bba0e0ae382459c5d292d))
+* Rename index files to YouTubePlaylist ([01d1eb8](https://github.com/codesweetly/react-youtube-playlist/commit/01d1eb8a89a394786faaf062f04852a6cea7d7ff))
+
+
+### 💅 Styling and Formatting
+
+* Remove emotion's configurations ([f33d542](https://github.com/codesweetly/react-youtube-playlist/commit/f33d5423cfef62143f4a3847d47f21bf156a73c9))
+* Replace emotion css with inline styling ([b7f2b0b](https://github.com/codesweetly/react-youtube-playlist/commit/b7f2b0b88db313863fe185ec8b495377261b8054))
+* Use spinner color with aa contrast on dark and light scheme ([0934bc5](https://github.com/codesweetly/react-youtube-playlist/commit/0934bc5b240c1b9b70009f41eb9ddf058624f555))
+
+
+### 🧪 Code Testing
+
+* Add configuration file to the test command ([51ad035](https://github.com/codesweetly/react-youtube-playlist/commit/51ad0358fc322bb19343ad776989771438c29d93))
+* Change jest configuration file to typescript ([392cb57](https://github.com/codesweetly/react-youtube-playlist/commit/392cb57224ad6adb725d348babab8fe57d62810d))
+
 ## [1.0.16](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.15...v1.0.16) (2023-08-16)
 
 
