@@ -37,8 +37,7 @@
   },
   "dependencies": {
     "fslightbox-react": "^1.7.4",
-    "prop-types": "^15.8.1",
-    "react-loader-spinner": "^6.1.6"
+    "prop-types": "^15.8.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",

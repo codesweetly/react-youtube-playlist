@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { BallTriangle } from "react-loader-spinner";
 import {
   YouTubePlaylistPropsType,
   PlaylistData,
@@ -136,15 +135,16 @@ export function YouTubePlaylist({
       {playlistDataArray && uniqueName ? (
         youtubeVideoFiguresArray
       ) : (
-        <BallTriangle
-          height={100}
-          width={100}
-          radius={5}
-          color="#bf00ff"
-          ariaLabel="ball-triangle-loading"
-          wrapperStyle={{ justifyContent: "center", paddingBlock: "90px" }}
-          visible={true}
-        />
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            height: "50vh",
+          }}
+        >
+          Loading...
+        </div>
       )}
       <FsLightbox
         toggler={lightboxController.toggler}
