@@ -3,14 +3,14 @@ import {
   YouTubePlaylistPropsType,
   PlaylistData,
 } from "./YouTubePlaylist.types";
-import { YouTubePlaylistStyles } from "./YouTubePlaylistStyles";
+import { youTubePlaylistStyles } from "./youTubePlaylistStyles";
 import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
 
-const galleryContainerStyle = new YouTubePlaylistStyles().galleryContainerStyle;
-const videoContainerStyle = new YouTubePlaylistStyles().videoContainerStyle;
-const videoImageStyle = new YouTubePlaylistStyles().videoImageStyle;
-const videoCaptionStyle = new YouTubePlaylistStyles().videoCaptionStyle;
+const galleryContainerStyle = youTubePlaylistStyles().galleryContainerStyle;
+const videoContainerStyle = youTubePlaylistStyles().videoContainerStyle;
+const videoImageStyle = youTubePlaylistStyles().videoImageStyle;
+const videoCaptionStyle = youTubePlaylistStyles().videoCaptionStyle;
 
 export function YouTubePlaylist({
   apiKey,
