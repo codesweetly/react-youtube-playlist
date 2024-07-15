@@ -37,6 +37,7 @@ export function YouTubePlaylist({
   );
   const [showModalControls, setShowModalControls] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
+  const lastCardRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const lightboxRef = useRef<HTMLElement | null>(null);
 
@@ -118,60 +119,18 @@ export function YouTubePlaylist({
     }
   }
 
-  function handleScroll() {
-    if (playlistDataArray && videoCardsArray) {
-      const playlistGalleryDiv = document.getElementById(uniqueNameParsed);
-      const galleryHeight = playlistGalleryDiv?.clientHeight;
-      const viewportHeight = window.document.documentElement.clientHeight;
-      const viewportLengthScrolled = window.document.documentElement.scrollTop;
-      if (galleryHeight) {
-        const galleryHeightIsGreaterThanViewport =
-          galleryHeight > viewportHeight;
-        const heightAboveGallery = playlistGalleryDiv.offsetTop;
-        const totalGalleryScrollableHeight = galleryHeightIsGreaterThanViewport
-          ? galleryHeight - viewportHeight + heightAboveGallery
-          : 0;
-        const remainingGalleryScrollableHeight =
-          totalGalleryScrollableHeight - viewportLengthScrolled;
-        const scrolledToGalleryBottom = remainingGalleryScrollableHeight <= 0;
-        const moreVideosAvailable =
-          playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
-
-        if (
-          scrolledToGalleryBottom &&
-          moreVideosAvailable &&
-          isNotFetchingData
-        ) {
-          setIsNotFetchingData(false);
-          saveSubsequentPlaylistAndURLDataArrayToState();
-        }
-      }
-    }
-  }
-
-  function handleImageContainerMouseEnter(
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) {
-    const figcaption = e.currentTarget.querySelector("figcaption");
-    figcaption && (figcaption.style.opacity = "1");
-  }
-
-  function handleImageContainerMouseLeave(
-    e: React.MouseEvent<HTMLElement, MouseEvent>
-  ) {
-    const figcaption = e.currentTarget.querySelector("figcaption");
-    figcaption && (figcaption.style.opacity = "0");
-  }
-
   if (playlistDataArray) {
     videoCardsArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video" && item.title !== "Private video") {
         return (
-          <button type="button" style={imageBtnStyle} key={crypto.randomUUID()}>
+          <button
+            type="button"
+            ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
+            style={imageBtnStyle}
+            key={crypto.randomUUID()}
+          >
             <figure
               style={videoContainerStyle}
-              onMouseEnter={(e) => handleImageContainerMouseEnter(e)}
-              onMouseLeave={(e) => handleImageContainerMouseLeave(e)}
               onKeyDown={(e) =>
                 e.key === "Enter" &&
                 openLightboxOnSlide(item.resourceId.videoId, index + 1)
@@ -334,13 +293,6 @@ export function YouTubePlaylist({
   }, [apiKey, playlistId]);
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  });
-
-  useEffect(() => {
     function handleFullscreenChange() {
       setFullscreen(Boolean(document.fullscreenElement));
       lightboxRef.current?.focus();
@@ -355,6 +307,30 @@ export function YouTubePlaylist({
       (document.documentElement.style.overflow = "hidden");
     !dialogRef.current?.open && (document.documentElement.style.overflow = "");
   });
+
+  useEffect(() => {
+    const videoCardObserver = new IntersectionObserver(
+      (entries) => {
+        const moreVideosAvailable =
+          playlistDataArray &&
+          playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
+        if (
+          entries[0].isIntersecting &&
+          moreVideosAvailable &&
+          isNotFetchingData
+        ) {
+          setIsNotFetchingData(false);
+          saveSubsequentPlaylistAndURLDataArrayToState();
+          lastCardRef.current &&
+            videoCardObserver.unobserve(lastCardRef.current);
+        }
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+    lastCardRef.current && videoCardObserver.observe(lastCardRef.current);
+  }, [playlistDataArray]);
 
   return (
     <>
