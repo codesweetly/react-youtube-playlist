@@ -100,16 +100,19 @@ export function YouTubePlaylist({
     }
   }
 
-  function saveSubsequentPlaylistAndURLDataArrayToState() {
+  async function saveSubsequentPlaylistAndURLDataArrayToState() {
     if (playlistDataArray) {
       const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
-      getPlaylistData(apiKey, playlistId, lastGalleryItem.nextPageToken)
-        .then((newData) => {
-          setPlaylistDataArray([...playlistDataArray, ...newData]);
-        })
-        .catch((e) =>
-          console.error(`Error getting next page playlist data: ${e}`)
+      try {
+        const newPlaylistData = await getPlaylistData(
+          apiKey,
+          playlistId,
+          lastGalleryItem.nextPageToken
         );
+        setPlaylistDataArray([...playlistDataArray, ...newPlaylistData]);
+      } catch (e) {
+        console.error(`Error getting next page playlist data: ${e}`);
+      }
       setIsNotFetchingData(true);
     }
   }
@@ -321,12 +324,13 @@ export function YouTubePlaylist({
   );
 
   useEffect(() => {
-    function saveInitialPlaylistAndURLDataArrayToState() {
-      getPlaylistData(apiKey, playlistId)
-        .then((items) => {
-          setPlaylistDataArray(items);
-        })
-        .catch((e) => console.error(`Error getting playlist data: ${e}`));
+    async function saveInitialPlaylistAndURLDataArrayToState() {
+      try {
+        const newPlaylistData = await getPlaylistData(apiKey, playlistId);
+        setPlaylistDataArray(newPlaylistData);
+      } catch (e) {
+        console.error(`Error getting playlist data: ${e}`);
+      }
     }
     saveInitialPlaylistAndURLDataArrayToState();
   }, [apiKey, playlistId]);
