@@ -17,7 +17,7 @@ const modalToolbarStyle = youTubePlaylistStyles().modalToolbarStyle;
 const modalToolbarBtnStyle = youTubePlaylistStyles().modalToolbarBtnStyle;
 const modalSlideShowSectionStyle =
   youTubePlaylistStyles().modalSlideShowSectionStyle;
-const modalImageStyle = youTubePlaylistStyles().modalImageStyle;
+const modalIFrameStyle = youTubePlaylistStyles().modalIFrameStyle;
 const modalSlideBtnStyle = youTubePlaylistStyles().modalSlideBtnStyle;
 
 export function YouTubePlaylist({
@@ -42,7 +42,6 @@ export function YouTubePlaylist({
   let youtubeVideoFiguresArray: (React.JSX.Element | "")[] | null = null;
 
   function openLightboxOnSlide(vId: string, number: number) {
-    console.log(vId);
     setVideoId(vId);
     setSlideNumber(number);
     dialogRef.current?.showModal();
@@ -56,8 +55,9 @@ export function YouTubePlaylist({
   }
 
   function exitFullScreenAndDialog() {
-    fullscreen && switchFullScreen(false);
+    setVideoId("");
     dialogRef.current?.close();
+    fullscreen && switchFullScreen(false);
   }
 
   function switchFullScreen(on: boolean) {
@@ -90,7 +90,6 @@ export function YouTubePlaylist({
   function changeSlide(directionNumber: number) {
     const totalVideos = playlistDataArray?.length;
     let newSlideNumber = slideNumber + directionNumber;
-
     if (totalVideos) {
       newSlideNumber < 1 && (newSlideNumber = totalVideos);
       newSlideNumber > totalVideos && (newSlideNumber = 1);
@@ -279,10 +278,9 @@ export function YouTubePlaylist({
             )}
           </button>
           <iframe
-            style={modalImageStyle}
+            style={modalIFrameStyle}
             src={`https://www.youtube.com/embed/${videoId}?v=${videoId}`}
             title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
           ></iframe>

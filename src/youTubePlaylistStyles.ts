@@ -71,10 +71,11 @@ export function youTubePlaylistStyles() {
     width: "inherit",
     height: "inherit",
   };
-  const modalImageStyle: React.CSSProperties = {
+  const modalIFrameStyle: React.CSSProperties = {
     margin: "auto",
-    maxWidth: "100vw",
-    maxHeight: "100vh",
+    width: "80%",
+    aspectRatio: "16/9",
+    border: "none",
   };
   const modalSlideBtnStyle: React.CSSProperties = {
     position: "absolute",
@@ -99,7 +100,7 @@ export function youTubePlaylistStyles() {
     modalToolbarStyle,
     modalToolbarBtnStyle,
     modalSlideShowSectionStyle,
-    modalImageStyle,
+    modalIFrameStyle,
     modalSlideBtnStyle,
   };
 }
