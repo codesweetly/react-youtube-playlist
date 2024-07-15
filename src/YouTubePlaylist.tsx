@@ -43,17 +43,17 @@ export function YouTubePlaylist({
     dialogRef.current?.showModal();
   }
 
-  function handleKeyDownOnModal(e: React.KeyboardEvent<HTMLElement>) {
-    e.key === "ArrowLeft" && changeSlide(-1);
-    e.key === "ArrowRight" && changeSlide(1);
-    e.key === "f" && fullscreen && switchFullScreen(false);
-    e.key === "f" && !fullscreen && switchFullScreen(true);
-  }
-
-  function exitFullScreenAndDialog() {
-    setVideoId("");
-    dialogRef.current?.close();
-    fullscreen && switchFullScreen(false);
+  function changeSlide(directionNumber: number) {
+    const totalVideos = playlistDataArray?.length;
+    let newSlideNumber = slideNumber + directionNumber;
+    if (totalVideos) {
+      newSlideNumber < 1 && (newSlideNumber = totalVideos);
+      newSlideNumber > totalVideos && (newSlideNumber = 1);
+      if (newSlideNumber <= totalVideos && newSlideNumber > 0) {
+        setVideoId(playlistDataArray[newSlideNumber - 1].resourceId.videoId);
+        setSlideNumber(newSlideNumber);
+      }
+    }
   }
 
   function switchFullScreen(on: boolean) {
@@ -67,6 +67,19 @@ export function YouTubePlaylist({
     if (!on) {
       document.exitFullscreen().catch((error) => console.error(error));
     }
+  }
+
+  function handleKeyDownOnModal(e: React.KeyboardEvent<HTMLElement>) {
+    e.key === "ArrowLeft" && changeSlide(-1);
+    e.key === "ArrowRight" && changeSlide(1);
+    e.key === "f" && fullscreen && switchFullScreen(false);
+    e.key === "f" && !fullscreen && switchFullScreen(true);
+  }
+
+  function exitFullScreenAndDialog() {
+    setVideoId("");
+    dialogRef.current?.close();
+    fullscreen && switchFullScreen(false);
   }
 
   function SvgElement(pathElement: ReactElement) {
@@ -83,36 +96,6 @@ export function YouTubePlaylist({
     );
   }
 
-  function changeSlide(directionNumber: number) {
-    const totalVideos = playlistDataArray?.length;
-    let newSlideNumber = slideNumber + directionNumber;
-    if (totalVideos) {
-      newSlideNumber < 1 && (newSlideNumber = totalVideos);
-      newSlideNumber > totalVideos && (newSlideNumber = 1);
-      if (newSlideNumber <= totalVideos && newSlideNumber > 0) {
-        setSlideNumber(newSlideNumber);
-        setVideoId(playlistDataArray[newSlideNumber - 1].resourceId.videoId);
-      }
-    }
-  }
-
-  async function saveSubsequentPlaylistAndURLDataArrayToState() {
-    if (playlistDataArray) {
-      const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
-      try {
-        const newPlaylistData = await getPlaylistData(
-          apiKey,
-          playlistId,
-          lastGalleryItem.nextPageToken
-        );
-        setPlaylistDataArray([...playlistDataArray, ...newPlaylistData]);
-      } catch (e) {
-        console.error(`Error getting next page playlist data: ${e}`);
-      }
-      setIsNotFetchingData(true);
-    }
-  }
-
   function showVideoCards() {
     return playlistDataArray?.map((item, index) => {
       if (item.title !== "Deleted video" && item.title !== "Private video") {
@@ -122,14 +105,12 @@ export function YouTubePlaylist({
             ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
             style={imageBtnStyle}
             key={item.id}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              openLightboxOnSlide(item.resourceId.videoId, index + 1)
+            }
           >
-            <figure
-              style={videoContainerStyle}
-              onKeyDown={(e) =>
-                e.key === "Enter" &&
-                openLightboxOnSlide(item.resourceId.videoId, index + 1)
-              }
-            >
+            <figure style={videoContainerStyle}>
               <img
                 alt={`Video ${index + 1} of ${playlistDataArray.length}`}
                 src={item.thumbnails.high.url}
@@ -148,8 +129,25 @@ export function YouTubePlaylist({
     });
   }
 
+  async function setSubsequentPlaylistData() {
+    if (playlistDataArray) {
+      const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
+      try {
+        const newPlaylistData = await getPlaylistData(
+          apiKey,
+          playlistId,
+          lastGalleryItem.nextPageToken
+        );
+        setPlaylistDataArray([...playlistDataArray, ...newPlaylistData]);
+      } catch (e) {
+        console.error(`Error getting next page playlist data: ${e}`);
+      }
+      setIsNotFetchingData(true);
+    }
+  }
+
   useEffect(() => {
-    async function saveInitialPlaylistAndURLDataArrayToState() {
+    async function setInitialPlaylistData() {
       try {
         const newPlaylistData = await getPlaylistData(apiKey, playlistId);
         setPlaylistDataArray(newPlaylistData);
@@ -157,7 +155,7 @@ export function YouTubePlaylist({
         console.error(`Error getting playlist data: ${e}`);
       }
     }
-    saveInitialPlaylistAndURLDataArrayToState();
+    setInitialPlaylistData();
   }, [apiKey, playlistId]);
 
   useEffect(() => {
@@ -171,8 +169,9 @@ export function YouTubePlaylist({
           moreVideosAvailable &&
           isNotFetchingData
         ) {
+          console.log(entries[0]);
           setIsNotFetchingData(false);
-          saveSubsequentPlaylistAndURLDataArrayToState();
+          setSubsequentPlaylistData();
           lastCardRef.current &&
             videoCardObserver.unobserve(lastCardRef.current);
         }
@@ -298,7 +297,6 @@ export function YouTubePlaylist({
             title="YouTube video player"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            loading="lazy"
           ></iframe>
           <button
             type="button"
