@@ -117,7 +117,7 @@ export function YouTubePlaylist({
     }
   }
 
-  function getVideoCardsArray() {
+  function showVideoCards() {
     return playlistDataArray?.map((item, index) => {
       if (item.title !== "Deleted video" && item.title !== "Private video") {
         return (
@@ -125,7 +125,7 @@ export function YouTubePlaylist({
             type="button"
             ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
             style={imageBtnStyle}
-            key={crypto.randomUUID()}
+            key={item.id}
           >
             <figure
               style={videoContainerStyle}
@@ -207,7 +207,7 @@ export function YouTubePlaylist({
   const galleryElement =
     playlistDataArray && uniqueName ? (
       <div id={uniqueNameParsed} style={galleryContainerStyle}>
-        {getVideoCardsArray()}
+        {showVideoCards()}
       </div>
     ) : (
       <div style={loaderContainerStyle}>Loading...</div>
