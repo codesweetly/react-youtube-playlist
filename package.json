@@ -35,9 +35,6 @@
     "url": "https://github.com/codesweetly/react-youtube-playlist/issues",
     "email": "contact@codesweetly.com"
   },
-  "dependencies": {
-    "prop-types": "^15.8.1"
-  },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
     "@commitlint/config-conventional": "^18.4.3",

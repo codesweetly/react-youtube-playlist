@@ -4,7 +4,6 @@ import {
   PlaylistData,
 } from "./YouTubePlaylist.types";
 import { youTubePlaylistStyles } from "./youTubePlaylistStyles";
-// import FsLightbox from "fslightbox-react";
 import getPlaylistData from "./getPlaylistData";
 
 const galleryContainerStyle = youTubePlaylistStyles().galleryContainerStyle;
