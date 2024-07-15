@@ -39,7 +39,7 @@ export function YouTubePlaylist({
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const lightboxRef = useRef<HTMLElement | null>(null);
 
-  let youtubeVideoFiguresArray: (React.JSX.Element | "")[] | null = null;
+  let videoCardsArray: (React.JSX.Element | "")[] | null = null;
 
   function openLightboxOnSlide(vId: string, number: number) {
     setVideoId(vId);
@@ -118,7 +118,7 @@ export function YouTubePlaylist({
   }
 
   function handleScroll() {
-    if (playlistDataArray && youtubeVideoFiguresArray) {
+    if (playlistDataArray && videoCardsArray) {
       const playlistGalleryDiv = document.getElementById(uniqueNameParsed);
       const galleryHeight = playlistGalleryDiv?.clientHeight;
       const viewportHeight = window.document.documentElement.clientHeight;
@@ -163,7 +163,7 @@ export function YouTubePlaylist({
   }
 
   if (playlistDataArray) {
-    youtubeVideoFiguresArray = playlistDataArray.map((item, index) => {
+    videoCardsArray = playlistDataArray.map((item, index) => {
       if (item.title !== "Deleted video" && item.title !== "Private video") {
         return (
           <button type="button" style={imageBtnStyle} key={crypto.randomUUID()}>
@@ -360,9 +360,7 @@ export function YouTubePlaylist({
 
   return (
     <div id={uniqueNameParsed} style={galleryContainerStyle}>
-      {playlistDataArray && uniqueName
-        ? youtubeVideoFiguresArray
-        : loadingElement}
+      {playlistDataArray && uniqueName ? videoCardsArray : loadingElement}
       {lightBoxElement}
     </div>
   );
