@@ -24,7 +24,6 @@ const modalSlideBtnStyle = youTubePlaylistStyles().modalSlideBtnStyle;
 export function YouTubePlaylist({
   apiKey,
   playlistId,
-  uniqueName,
 }: YouTubePlaylistPropsType) {
   const [videoId, setVideoId] = useState("");
   const [slideNumber, setSlideNumber] = useState(1);
@@ -32,9 +31,6 @@ export function YouTubePlaylist({
     PlaylistData[] | null
   >(null);
   const [isNotFetchingData, setIsNotFetchingData] = useState(true);
-  const [uniqueNameParsed] = useState(
-    uniqueName.toLowerCase().replace(/\s/g, "-")
-  );
   const [showModalControls, setShowModalControls] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const lastCardRef = useRef<HTMLButtonElement | null>(null);
@@ -204,14 +200,11 @@ export function YouTubePlaylist({
     !dialogRef.current?.open && (document.documentElement.style.overflow = "");
   });
 
-  const galleryElement =
-    playlistDataArray && uniqueName ? (
-      <div id={uniqueNameParsed} style={galleryContainerStyle}>
-        {showVideoCards()}
-      </div>
-    ) : (
-      <div style={loaderContainerStyle}>Loading...</div>
-    );
+  const galleryElement = playlistDataArray ? (
+    <div style={galleryContainerStyle}>{showVideoCards()}</div>
+  ) : (
+    <div style={loaderContainerStyle}>Loading...</div>
+  );
 
   const lightBoxElement = (
     <dialog ref={dialogRef} style={{ margin: "auto" }}>

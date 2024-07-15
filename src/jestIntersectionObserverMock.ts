@@ -1,3 +1,5 @@
+// source: https://stackoverflow.com/a/67457502/11841906
+
 import { jest } from "@jest/globals";
 
 class IntersectionObserver {
