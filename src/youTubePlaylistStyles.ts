@@ -1,4 +1,10 @@
 export function youTubePlaylistStyles() {
+  const loaderContainerStyle: React.CSSProperties = {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "50vh",
+  };
   const galleryContainerStyle: React.CSSProperties = {
     display: "grid",
     gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
@@ -90,6 +96,7 @@ export function youTubePlaylistStyles() {
     WebkitUserSelect: "none",
   };
   return {
+    loaderContainerStyle,
     galleryContainerStyle,
     imageBtnStyle,
     videoContainerStyle,

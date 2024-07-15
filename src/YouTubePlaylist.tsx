@@ -6,6 +6,7 @@ import {
 import { youTubePlaylistStyles } from "./youTubePlaylistStyles";
 import getPlaylistData from "./getPlaylistData";
 
+const loaderContainerStyle = youTubePlaylistStyles().loaderContainerStyle;
 const galleryContainerStyle = youTubePlaylistStyles().galleryContainerStyle;
 const imageBtnStyle = youTubePlaylistStyles().imageBtnStyle;
 const videoContainerStyle = youTubePlaylistStyles().videoContainerStyle;
@@ -194,6 +195,15 @@ export function YouTubePlaylist({
     });
   }
 
+  const galleryElement =
+    playlistDataArray && uniqueName ? (
+      <div id={uniqueNameParsed} style={galleryContainerStyle}>
+        {videoCardsArray}
+      </div>
+    ) : (
+      <div style={loaderContainerStyle}>Loading...</div>
+    );
+
   const lightBoxElement = (
     <dialog ref={dialogRef} style={{ margin: "auto" }}>
       <article
@@ -286,6 +296,7 @@ export function YouTubePlaylist({
             title="YouTube video player"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
+            loading="lazy"
           ></iframe>
           <button
             type="button"
@@ -308,19 +319,6 @@ export function YouTubePlaylist({
         </section>
       </article>
     </dialog>
-  );
-
-  const loadingElement = (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "50vh",
-      }}
-    >
-      Loading...
-    </div>
   );
 
   useEffect(() => {
@@ -359,9 +357,9 @@ export function YouTubePlaylist({
   });
 
   return (
-    <div id={uniqueNameParsed} style={galleryContainerStyle}>
-      {playlistDataArray && uniqueName ? videoCardsArray : loadingElement}
+    <>
+      {galleryElement}
       {lightBoxElement}
-    </div>
+    </>
   );
 }
