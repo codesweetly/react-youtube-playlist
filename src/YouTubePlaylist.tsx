@@ -157,27 +157,17 @@ export function YouTubePlaylist({
   }, [apiKey, playlistId]);
 
   useEffect(() => {
-    function observeVideoCard(entries: IntersectionObserverEntry[]) {
+    function observeLastCard(entries: IntersectionObserverEntry[]) {
       const moreVideosAvailable =
         playlistDataArray &&
         playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
-      const lastVideoCard = entries[0];
-      if (lastVideoCard.isIntersecting && moreVideosAvailable) {
-        console.log(lastVideoCard);
+      entries[0].isIntersecting &&
+        moreVideosAvailable &&
         saveSubsequentPlaylistData();
-      }
     }
-    const options = {
-      threshold: 0.3,
-    };
-    const videoCardObserver = new IntersectionObserver(
-      observeVideoCard,
-      options
-    );
+    const videoCardObserver = new IntersectionObserver(observeLastCard);
     lastCardRef.current && videoCardObserver.observe(lastCardRef.current);
-    return () => {
-      videoCardObserver.disconnect();
-    };
+    return () => videoCardObserver.disconnect();
   }, [playlistDataArray]);
 
   useEffect(() => {
