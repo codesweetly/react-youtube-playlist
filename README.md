@@ -1,6 +1,6 @@
 # React YouTube Playlist
 
-An easy-to-use and responsive React component for displaying YouTube playlists on a web app. Create a beautiful gallery of YouTube videos.
+A simple, easy-to-use, and responsive playlist component with a lightbox for displaying a beautiful gallery of YouTube videos in React apps.
 
 ![npm](https://img.shields.io/npm/v/@codesweetly/react-youtube-playlist) ![NPM](https://img.shields.io/npm/l/@codesweetly/react-youtube-playlist)
 
@@ -40,7 +40,6 @@ function App() {
     <YouTubePlaylist
       apiKey="YOUR_YOUTUBE_API_KEY"
       playlistId="YOUR_YOUTUBE_PLAYLIST_ID"
-      uniqueName="THIS_PLAYLIST_INSTANCE_NAME"
     />
   );
 }
@@ -77,21 +76,6 @@ function App() {
 **(Required)** The ID of the YouTube playlist you wish to display.
 
 **Note:** A playlist's ID is the list of characters after the **"list="** in the [URL](https://codesweetly.com/web-address-url)—for instance, `https://www.youtube.com/playlist?list=playlistID`.
-
-</td>
-</tr>
-<tr>
-<td><code>uniqueName</code></td>
-<td>string</td>
-<td><code>undefined</code></td>
-<td>
-
-**(Required)** A unique name for the `<YouTubePlaylist>` instance.
-
-**Note:**
-
-- No two `<YouTubePlaylist>` on a single page must have the same name.
-- Use the [HTML `id` attribute's naming convention](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id) for the `uniqueName` props.
 
 </td>
 </tr>
@@ -133,13 +117,10 @@ The `YouTubePlaylist` package works _only_ as a Client Component because it uses
 npm run build
 ```
 
-## Dependencies
-
-- [fslightbox-react](https://github.com/banthagroup/fslightbox-react)
-- [prop-types](https://github.com/facebook/prop-types)
-- [react](https://github.com/facebook/react)
-- [react-loader-spinner](https://github.com/mhnpd/react-loader-spinner)
-
 ## Demo
 
 https://codesweetly.com/react-youtube-playlist
+
+## Support
+
+🍵 [Buy me a coffee](https://www.buymeacoffee.com/codesweetly)
