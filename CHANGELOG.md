@@ -1,5 +1,58 @@
 # Changelog
 
+## [3.0.0](https://github.com/codesweetly/react-youtube-playlist/compare/v2.0.0...v3.0.0) (2024-07-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Delete uniqueName prop
+
+### 🧱 Dependency
+
+* Bump dev dependencies ([370c88d](https://github.com/codesweetly/react-youtube-playlist/commit/370c88dc50c7d26b5b544e570ec79c5b9fd13e46))
+* Drop fslightbox-react dependency ([366d15d](https://github.com/codesweetly/react-youtube-playlist/commit/366d15d44c8877166c09878b36742638bc2d8d69))
+* Drop prop-types dependency ([33535e0](https://github.com/codesweetly/react-youtube-playlist/commit/33535e0ba90771ade57436413aadf08d10eea322))
+* Drop react-loader-spinner dependency ([8da1c02](https://github.com/codesweetly/react-youtube-playlist/commit/8da1c024dfa3a41790704a508f9d045806641bea))
+
+
+### 🏠 Chores
+
+* Delete console.log ([444f030](https://github.com/codesweetly/react-youtube-playlist/commit/444f0307ae6010277d1764c7a4e8e0d6ca852fee))
+
+
+### 📝 Documentation
+
+* Delete uniqueName prop ([e8570f4](https://github.com/codesweetly/react-youtube-playlist/commit/e8570f43dd97b74714321c6fb97d627e5f98ab43))
+* Update description ([67799ef](https://github.com/codesweetly/react-youtube-playlist/commit/67799efa18167bb8d78ce1703e3f5737a9115619))
+
+
+### 🐛 Bug Fix
+
+* Open lightbox when keyboard enter key is pressed on video card ([3112a50](https://github.com/codesweetly/react-youtube-playlist/commit/3112a50713cbc42d75baa8a52814c6c41960aea3))
+* Stop video when lightbox is closed ([9cdc3de](https://github.com/codesweetly/react-youtube-playlist/commit/9cdc3de3d9b71218f3cf545b52c247ad19cdd0d6))
+
+
+### 🔄️ Code Refactoring
+
+* Create video cards only while rendering gallery ([9f2271f](https://github.com/codesweetly/react-youtube-playlist/commit/9f2271f0646c153cf8542a46347724e09277795c))
+* Delete redundant isNotFetchingData state ([ac0a70b](https://github.com/codesweetly/react-youtube-playlist/commit/ac0a70b97cc21acdd6d4d9a47fa4d3768cb9949f))
+* Delete uniqueName prop ([29df23c](https://github.com/codesweetly/react-youtube-playlist/commit/29df23c7a75e0d11483c3d63c74460a3487ce221))
+* Make infinite scrolling performant ([85e097f](https://github.com/codesweetly/react-youtube-playlist/commit/85e097f61d8916b44887595423d2230320b9d634))
+* Rename youtubeVideoFiguresArray to videoCardsArray ([712d5e1](https://github.com/codesweetly/react-youtube-playlist/commit/712d5e1424b4eeed867418b51a101745d1e294ba))
+* Separate gallery and loader's container ([cc4a06b](https://github.com/codesweetly/react-youtube-playlist/commit/cc4a06bf7bb6fe660165147923fb0467b788c67c))
+* Use async/await to implement asynchronous logic ([0ef52ee](https://github.com/codesweetly/react-youtube-playlist/commit/0ef52ee8ddb3569e6b57c21b52229d691f2a5b4e))
+
+
+### 💅 Styling and Formatting
+
+* Change class declaration to function ([bf06811](https://github.com/codesweetly/react-youtube-playlist/commit/bf068116a3b3e4be6b738c2e0c0703bb9da2b999))
+* Change javascript file to typescript ([5a53ff0](https://github.com/codesweetly/react-youtube-playlist/commit/5a53ff05e32695566e600d1675029a41057a3130))
+
+
+### 🧪 Code Testing
+
+* Mock the intersection observer api ([23da8ca](https://github.com/codesweetly/react-youtube-playlist/commit/23da8caedc4bf5c67c26e28181f4eb73b44816ba))
+
 ## [2.0.0](https://github.com/codesweetly/react-youtube-playlist/compare/v1.0.16...v2.0.0) (2024-01-03)
 
 
