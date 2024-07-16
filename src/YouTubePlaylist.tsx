@@ -30,7 +30,6 @@ export function YouTubePlaylist({
   const [playlistDataArray, setPlaylistDataArray] = useState<
     PlaylistData[] | null
   >(null);
-  const [isNotFetchingData, setIsNotFetchingData] = useState(true);
   const [showModalControls, setShowModalControls] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
   const lastCardRef = useRef<HTMLButtonElement | null>(null);
@@ -41,6 +40,39 @@ export function YouTubePlaylist({
     setVideoId(vId);
     setSlideNumber(number);
     dialogRef.current?.showModal();
+  }
+
+  function showVideoCards() {
+    return playlistDataArray?.map((item, index) => {
+      if (item.title !== "Deleted video" && item.title !== "Private video") {
+        return (
+          <button
+            type="button"
+            ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
+            style={imageBtnStyle}
+            key={item.id}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              openLightboxOnSlide(item.resourceId.videoId, index + 1)
+            }
+          >
+            <figure style={videoContainerStyle}>
+              <img
+                alt={`Video ${index + 1} of ${playlistDataArray.length}`}
+                src={item.thumbnails.high.url}
+                onClick={() =>
+                  openLightboxOnSlide(item.resourceId.videoId, index + 1)
+                }
+                style={videoImageStyle}
+              />
+              <figcaption style={videoCaptionStyle}>{item.title}</figcaption>
+            </figure>
+          </button>
+        );
+      } else {
+        return "";
+      }
+    });
   }
 
   function changeSlide(directionNumber: number) {
@@ -96,40 +128,7 @@ export function YouTubePlaylist({
     );
   }
 
-  function showVideoCards() {
-    return playlistDataArray?.map((item, index) => {
-      if (item.title !== "Deleted video" && item.title !== "Private video") {
-        return (
-          <button
-            type="button"
-            ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
-            style={imageBtnStyle}
-            key={item.id}
-            onKeyDown={(e) =>
-              e.key === "Enter" &&
-              openLightboxOnSlide(item.resourceId.videoId, index + 1)
-            }
-          >
-            <figure style={videoContainerStyle}>
-              <img
-                alt={`Video ${index + 1} of ${playlistDataArray.length}`}
-                src={item.thumbnails.high.url}
-                onClick={() =>
-                  openLightboxOnSlide(item.resourceId.videoId, index + 1)
-                }
-                style={videoImageStyle}
-              />
-              <figcaption style={videoCaptionStyle}>{item.title}</figcaption>
-            </figure>
-          </button>
-        );
-      } else {
-        return "";
-      }
-    });
-  }
-
-  async function setSubsequentPlaylistData() {
+  async function saveSubsequentPlaylistData() {
     if (playlistDataArray) {
       const lastGalleryItem = playlistDataArray[playlistDataArray.length - 1];
       try {
@@ -142,12 +141,11 @@ export function YouTubePlaylist({
       } catch (e) {
         console.error(`Error getting next page playlist data: ${e}`);
       }
-      setIsNotFetchingData(true);
     }
   }
 
   useEffect(() => {
-    async function setInitialPlaylistData() {
+    async function saveInitialPlaylistData() {
       try {
         const newPlaylistData = await getPlaylistData(apiKey, playlistId);
         setPlaylistDataArray(newPlaylistData);
@@ -155,32 +153,31 @@ export function YouTubePlaylist({
         console.error(`Error getting playlist data: ${e}`);
       }
     }
-    setInitialPlaylistData();
+    saveInitialPlaylistData();
   }, [apiKey, playlistId]);
 
   useEffect(() => {
-    const videoCardObserver = new IntersectionObserver(
-      (entries) => {
-        const moreVideosAvailable =
-          playlistDataArray &&
-          playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
-        if (
-          entries[0].isIntersecting &&
-          moreVideosAvailable &&
-          isNotFetchingData
-        ) {
-          console.log(entries[0]);
-          setIsNotFetchingData(false);
-          setSubsequentPlaylistData();
-          lastCardRef.current &&
-            videoCardObserver.unobserve(lastCardRef.current);
-        }
-      },
-      {
-        threshold: 0.3,
+    function observeVideoCard(entries: IntersectionObserverEntry[]) {
+      const moreVideosAvailable =
+        playlistDataArray &&
+        playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
+      const lastVideoCard = entries[0];
+      if (lastVideoCard.isIntersecting && moreVideosAvailable) {
+        console.log(lastVideoCard);
+        saveSubsequentPlaylistData();
       }
+    }
+    const options = {
+      threshold: 0.3,
+    };
+    const videoCardObserver = new IntersectionObserver(
+      observeVideoCard,
+      options
     );
     lastCardRef.current && videoCardObserver.observe(lastCardRef.current);
+    return () => {
+      videoCardObserver.disconnect();
+    };
   }, [playlistDataArray]);
 
   useEffect(() => {
