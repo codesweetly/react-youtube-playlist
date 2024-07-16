@@ -4,5 +4,5 @@ import { test } from "@jest/globals";
 import { YouTubePlaylist } from "./YouTubePlaylist";
 
 test("youtube playlist renders correctly", () => {
-  render(<YouTubePlaylist apiKey="" playlistId="" uniqueName="" />);
+  render(<YouTubePlaylist apiKey="" playlistId="" />);
 });

@@ -1,7 +1,6 @@
 export interface YouTubePlaylistPropsType {
   apiKey: string;
   playlistId: string;
-  uniqueName: string;
 }
 
 export interface PlaylistData {
