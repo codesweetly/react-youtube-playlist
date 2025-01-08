@@ -1,4 +1,6 @@
-export function youTubePlaylistStyles() {
+import { YouTubePlaylistStylesType } from "./YouTubePlaylist.types";
+
+export function youTubePlaylistStyles(): YouTubePlaylistStylesType {
   const loaderContainerStyle: React.CSSProperties = {
     display: "flex",
     alignItems: "center",

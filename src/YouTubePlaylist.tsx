@@ -6,24 +6,10 @@ import {
 import { youTubePlaylistStyles } from "./youTubePlaylistStyles";
 import getPlaylistData from "./getPlaylistData";
 
-const loaderContainerStyle = youTubePlaylistStyles().loaderContainerStyle;
-const galleryContainerStyle = youTubePlaylistStyles().galleryContainerStyle;
-const imageBtnStyle = youTubePlaylistStyles().imageBtnStyle;
-const videoContainerStyle = youTubePlaylistStyles().videoContainerStyle;
-const videoImageStyle = youTubePlaylistStyles().videoImageStyle;
-const videoCaptionStyle = youTubePlaylistStyles().videoCaptionStyle;
-const modalContainerStyle = youTubePlaylistStyles().modalContainerStyle;
-const modalSlideNumberStyle = youTubePlaylistStyles().modalSlideNumberStyle;
-const modalToolbarStyle = youTubePlaylistStyles().modalToolbarStyle;
-const modalToolbarBtnStyle = youTubePlaylistStyles().modalToolbarBtnStyle;
-const modalSlideShowSectionStyle =
-  youTubePlaylistStyles().modalSlideShowSectionStyle;
-const modalIFrameStyle = youTubePlaylistStyles().modalIFrameStyle;
-const modalSlideBtnStyle = youTubePlaylistStyles().modalSlideBtnStyle;
-
 export function YouTubePlaylist({
   apiKey,
   playlistId,
+  customStyles = {},
 }: YouTubePlaylistPropsType) {
   const [videoId, setVideoId] = useState("");
   const [slideNumber, setSlideNumber] = useState(1);
@@ -35,6 +21,22 @@ export function YouTubePlaylist({
   const lastCardRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const lightboxRef = useRef<HTMLElement | null>(null);
+
+  const defaultStyles = youTubePlaylistStyles();
+  const playlistStyles = { ...defaultStyles, ...customStyles };
+  const loaderContainerStyle = playlistStyles.loaderContainerStyle;
+  const galleryContainerStyle = playlistStyles.galleryContainerStyle;
+  const imageBtnStyle = playlistStyles.imageBtnStyle;
+  const videoContainerStyle = playlistStyles.videoContainerStyle;
+  const videoImageStyle = playlistStyles.videoImageStyle;
+  const videoCaptionStyle = playlistStyles.videoCaptionStyle;
+  const modalContainerStyle = playlistStyles.modalContainerStyle;
+  const modalSlideNumberStyle = playlistStyles.modalSlideNumberStyle;
+  const modalToolbarStyle = playlistStyles.modalToolbarStyle;
+  const modalToolbarBtnStyle = playlistStyles.modalToolbarBtnStyle;
+  const modalSlideShowSectionStyle = playlistStyles.modalSlideShowSectionStyle;
+  const modalIFrameStyle = playlistStyles.modalIFrameStyle;
+  const modalSlideBtnStyle = playlistStyles.modalSlideBtnStyle;
 
   function openLightboxOnSlide(vId: string, number: number) {
     setVideoId(vId);
