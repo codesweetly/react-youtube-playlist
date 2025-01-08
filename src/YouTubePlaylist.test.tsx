@@ -12,11 +12,16 @@ test("youtube playlist renders correctly with custom styles", () => {
     margin: `0 0 0`,
     position: "relative",
   };
+
+  const imageBtnStyle: React.CSSProperties = {
+    border: "4px solid purple",
+  };
+
   render(
     <YouTubePlaylist
       apiKey=""
       playlistId=""
-      customStyles={{ videoContainerStyle }}
+      customStyles={{ videoContainerStyle, imageBtnStyle }}
     />
   );
 });
