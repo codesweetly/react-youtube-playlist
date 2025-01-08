@@ -9,6 +9,9 @@ import getPlaylistData from "./getPlaylistData";
 export function YouTubePlaylist({
   apiKey,
   playlistId,
+  columnCount = "auto",
+  columnWidth = 230,
+  gapSize = 24,
   customStyles = {},
 }: YouTubePlaylistPropsType) {
   const [videoId, setVideoId] = useState("");
@@ -22,7 +25,11 @@ export function YouTubePlaylist({
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const lightboxRef = useRef<HTMLElement | null>(null);
 
-  const defaultStyles = youTubePlaylistStyles();
+  const defaultStyles = youTubePlaylistStyles(
+    columnCount,
+    columnWidth,
+    gapSize
+  );
   const playlistStyles = { ...defaultStyles, ...customStyles };
   const loaderContainerStyle = playlistStyles.loaderContainerStyle;
   const galleryContainerStyle = playlistStyles.galleryContainerStyle;
@@ -42,39 +49,6 @@ export function YouTubePlaylist({
     setVideoId(vId);
     setSlideNumber(number);
     dialogRef.current?.showModal();
-  }
-
-  function showVideoCards() {
-    return playlistDataArray?.map((item, index) => {
-      if (item.title !== "Deleted video" && item.title !== "Private video") {
-        return (
-          <button
-            type="button"
-            ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
-            style={imageBtnStyle}
-            key={item.id}
-            onKeyDown={(e) =>
-              e.key === "Enter" &&
-              openLightboxOnSlide(item.resourceId.videoId, index + 1)
-            }
-          >
-            <figure style={videoContainerStyle}>
-              <img
-                alt={`Video ${index + 1} of ${playlistDataArray.length}`}
-                src={item.thumbnails.high.url}
-                onClick={() =>
-                  openLightboxOnSlide(item.resourceId.videoId, index + 1)
-                }
-                style={videoImageStyle}
-              />
-              <figcaption style={videoCaptionStyle}>{item.title}</figcaption>
-            </figure>
-          </button>
-        );
-      } else {
-        return "";
-      }
-    });
   }
 
   function changeSlide(directionNumber: number) {
@@ -146,47 +120,38 @@ export function YouTubePlaylist({
     }
   }
 
-  useEffect(() => {
-    async function saveInitialPlaylistData() {
-      try {
-        const newPlaylistData = await getPlaylistData(apiKey, playlistId);
-        setPlaylistDataArray(newPlaylistData);
-      } catch (e) {
-        console.error(`Error getting playlist data: ${e}`);
+  function showVideoCards() {
+    return playlistDataArray?.map((item, index) => {
+      if (item.title !== "Deleted video" && item.title !== "Private video") {
+        return (
+          <button
+            type="button"
+            ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
+            style={imageBtnStyle}
+            key={item.id}
+            onKeyDown={(e) =>
+              e.key === "Enter" &&
+              openLightboxOnSlide(item.resourceId.videoId, index + 1)
+            }
+          >
+            <figure style={videoContainerStyle}>
+              <img
+                alt={`Video ${index + 1} of ${playlistDataArray.length}`}
+                src={item.thumbnails.high.url}
+                onClick={() =>
+                  openLightboxOnSlide(item.resourceId.videoId, index + 1)
+                }
+                style={videoImageStyle}
+              />
+              <figcaption style={videoCaptionStyle}>{item.title}</figcaption>
+            </figure>
+          </button>
+        );
+      } else {
+        return "";
       }
-    }
-    saveInitialPlaylistData();
-  }, [apiKey, playlistId]);
-
-  useEffect(() => {
-    function observeLastCard(entries: IntersectionObserverEntry[]) {
-      const moreVideosAvailable =
-        playlistDataArray &&
-        playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
-      entries[0].isIntersecting &&
-        moreVideosAvailable &&
-        saveSubsequentPlaylistData();
-    }
-    const videoCardObserver = new IntersectionObserver(observeLastCard);
-    lastCardRef.current && videoCardObserver.observe(lastCardRef.current);
-    return () => videoCardObserver.disconnect();
-  }, [playlistDataArray]);
-
-  useEffect(() => {
-    function handleFullscreenChange() {
-      setFullscreen(Boolean(document.fullscreenElement));
-      lightboxRef.current?.focus();
-    }
-    document.addEventListener("fullscreenchange", handleFullscreenChange);
-    return () =>
-      document.removeEventListener("fullscreenchange", handleFullscreenChange);
-  }, []);
-
-  useEffect(() => {
-    dialogRef.current?.open &&
-      (document.documentElement.style.overflow = "hidden");
-    !dialogRef.current?.open && (document.documentElement.style.overflow = "");
-  });
+    });
+  }
 
   const galleryElement = playlistDataArray ? (
     <div style={galleryContainerStyle}>{showVideoCards()}</div>
@@ -309,6 +274,48 @@ export function YouTubePlaylist({
       </article>
     </dialog>
   );
+
+  useEffect(() => {
+    async function saveInitialPlaylistData() {
+      try {
+        const newPlaylistData = await getPlaylistData(apiKey, playlistId);
+        setPlaylistDataArray(newPlaylistData);
+      } catch (e) {
+        console.error(`Error getting playlist data: ${e}`);
+      }
+    }
+    saveInitialPlaylistData();
+  }, [apiKey, playlistId]);
+
+  useEffect(() => {
+    function observeLastCard(entries: IntersectionObserverEntry[]) {
+      const moreVideosAvailable =
+        playlistDataArray &&
+        playlistDataArray.length < playlistDataArray[0].totalVideosAvailable;
+      entries[0].isIntersecting &&
+        moreVideosAvailable &&
+        saveSubsequentPlaylistData();
+    }
+    const videoCardObserver = new IntersectionObserver(observeLastCard);
+    lastCardRef.current && videoCardObserver.observe(lastCardRef.current);
+    return () => videoCardObserver.disconnect();
+  }, [playlistDataArray]);
+
+  useEffect(() => {
+    function handleFullscreenChange() {
+      setFullscreen(Boolean(document.fullscreenElement));
+      lightboxRef.current?.focus();
+    }
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () =>
+      document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  useEffect(() => {
+    dialogRef.current?.open &&
+      (document.documentElement.style.overflow = "hidden");
+    !dialogRef.current?.open && (document.documentElement.style.overflow = "");
+  });
 
   return (
     <>

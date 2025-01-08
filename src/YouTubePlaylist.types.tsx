@@ -17,6 +17,9 @@ export interface YouTubePlaylistStylesType {
 export interface YouTubePlaylistPropsType {
   apiKey: string;
   playlistId: string;
+  columnCount?: string | number;
+  columnWidth?: string | number;
+  gapSize?: number;
   customStyles?: YouTubePlaylistStylesType;
 }
 
