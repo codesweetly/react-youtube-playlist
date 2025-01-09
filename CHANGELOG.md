@@ -1,5 +1,23 @@
 # Changelog
 
+## 3.1.0 (2025-01-09)
+
+* build: Add support for react 19 ([8c07aef](https://github.com/codesweetly/react-youtube-playlist/commit/8c07aef))
+* build: Bump @release-it/conventional-changelog@latest from v9.0.3 to v9.0.4 ([a7aca78](https://github.com/codesweetly/react-youtube-playlist/commit/a7aca78))
+* build: Bump dotenv-cli from v7.4.4 to v8.0.0 ([0782bfe](https://github.com/codesweetly/react-youtube-playlist/commit/0782bfe))
+* build: Bump react from v18.3.1 to v19.0.0 ([1fc2829](https://github.com/codesweetly/react-youtube-playlist/commit/1fc2829))
+* build: Bump release-it to v18.0.0 ([1f959d4](https://github.com/codesweetly/react-youtube-playlist/commit/1f959d4))
+* build: Bump typescript from v5.7.2 to v5.7.3 ([77f76ac](https://github.com/codesweetly/react-youtube-playlist/commit/77f76ac))
+* build: Downgrade release-it to from v18.0.0 to v17.11.0 ([6e4d701](https://github.com/codesweetly/react-youtube-playlist/commit/6e4d701))
+* build: Revert back to react v18.3.1 ([dae3f83](https://github.com/codesweetly/react-youtube-playlist/commit/dae3f83))
+* docs: Add features section ([094959e](https://github.com/codesweetly/react-youtube-playlist/commit/094959e))
+* style: Specify the gallery images' initial aspect ratio ([27653fb](https://github.com/codesweetly/react-youtube-playlist/commit/27653fb))
+* feat: Provide the option to specify the exact number of columns in the gallery ([0c2e54d](https://github.com/codesweetly/react-youtube-playlist/commit/0c2e54d))
+* test: Customize image button's style ([946004e](https://github.com/codesweetly/react-youtube-playlist/commit/946004e))
+* refactor: Make styles customizable ([d6d328f](https://github.com/codesweetly/react-youtube-playlist/commit/d6d328f))
+* chore: Add watch script ([07a651c](https://github.com/codesweetly/react-youtube-playlist/commit/07a651c))
+* chore: Reconfigure commit-msg hook ([5c39c72](https://github.com/codesweetly/react-youtube-playlist/commit/5c39c72))
+
 ## [3.0.0](https://github.com/codesweetly/react-youtube-playlist/compare/v2.0.0...v3.0.0) (2024-07-16)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@codesweetly/react-youtube-playlist",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "A simple video gallery with a lightbox for displaying YouTube playlists in React apps.",
   "main": "./dist/cjs/YouTubePlaylist.js",
   "module": "./dist/esm/YouTubePlaylist.js",
