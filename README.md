@@ -4,6 +4,16 @@ A simple, easy-to-use, and responsive playlist component with a lightbox for dis
 
 ![npm](https://img.shields.io/npm/v/@codesweetly/react-youtube-playlist) ![NPM](https://img.shields.io/npm/l/@codesweetly/react-youtube-playlist)
 
+## Features
+
+- SEO friendly
+- Fullscreen support
+- Keyboard accessible
+- Mobile responsive
+- Lightbox with translucent background
+- Set column numbers dynamically or manually
+- Customizable styles
+
 ## Live Demo and Tutorial
 
 Available at: https://codesweetly.com/react-youtube-playlist
@@ -45,7 +55,7 @@ function App() {
 }
 ```
 
-## Required Props
+## Props
 
 <table>
 <thead>
@@ -79,6 +89,76 @@ function App() {
 
 </td>
 </tr>
+<tr>
+<td>
+
+[`columnCount`](https://codesweetly.com/css-multi-column-layout-explained#what-is-a-css-column-count-property)
+
+</td>
+<td>number or keyword (string)</td>
+<td><code>"auto"</code></td>
+<td>
+
+(**Optional**) The number of columns.
+
+</td>
+</tr>
+<tr>
+<td>
+
+[`columnWidth`](https://codesweetly.com/css-multi-column-layout-explained#what-is-a-css-column-width-property)
+
+</td>
+<td>number or keyword (string)</td>
+<td><code>230</code></td>
+<td>
+
+(**Optional**) The minimum width of the gallery's columns.
+
+</td>
+</tr>
+<tr>
+<td>
+
+[`gapSize`](https://codesweetly.com/css-gap-property)
+
+</td>
+<td>number</td>
+<td><code>24</code></td>
+<td>
+
+(**Optional**) The gallery's gap size.
+
+</td>
+</tr>
+<tr>
+<td>
+
+`customStyles`
+
+</td>
+<td>ImageGalleryStylesType</td>
+<td><code>{}</code></td>
+<td>
+
+(**Optional**) Custom styles to override the following element's default styles:
+
+- Loader container: `loaderContainer`
+- Gallery container: `galleryContainerStyle`
+- Gallery image button: `imageBtnStyle`
+- Gallery video container: `videoContainerStyle`
+- Gallery image element: `videoImageStyle`
+- Gallery video caption: `videoCaptionStyle`
+- Modal container: `modalContainerStyle`
+- Modal slide number: `modalSlideNumberStyle`
+- Modal toolbar: `modalToolbarStyle`
+- Modal toolbar button: `modalToolbarBtnStyle`
+- Modal slideshow section: `modalSlideShowSectionStyle`
+- Modal iframe element: `modalIFrameStyle`
+- Modal slide button: `modalSlideBtnStyle`
+
+</td>
+</tr>
 </tbody>
 </table>
 
@@ -103,8 +183,8 @@ The [`serverDependenciesToBundle`](https://remix.run/docs/en/1.19.0/file-convent
 
 ```diff
 + "use client";
-import YouTubePlaylist from "@codesweetly/react-youtube-playlist";
-import ImageGallery from "react-image-grid-gallery";
+import { YouTubePlaylist } from "@codesweetly/react-youtube-playlist";
+import { ImageGallery } from "react-image-grid-gallery";
 ```
 
 The `"use client"` directive tells NextJS to consider all modules imported into the page as part of the Client Component module graph.

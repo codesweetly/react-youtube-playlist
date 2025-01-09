@@ -1,4 +1,10 @@
-export function youTubePlaylistStyles() {
+import { YouTubePlaylistStylesType } from "./YouTubePlaylist.types";
+
+export function youTubePlaylistStyles(
+  columnCount?: string | number,
+  columnWidth?: string | number,
+  gapSize?: number
+): YouTubePlaylistStylesType {
   const loaderContainerStyle: React.CSSProperties = {
     display: "flex",
     alignItems: "center",
@@ -6,9 +12,10 @@ export function youTubePlaylistStyles() {
     height: "50vh",
   };
   const galleryContainerStyle: React.CSSProperties = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
-    gridGap: "0 1rem",
+    columnCount,
+    columnWidth: `${columnWidth}px`,
+    columnGap: `${gapSize}px`,
+    textAlign: "center",
   };
   const imageBtnStyle: React.CSSProperties = {
     border: "none",
@@ -17,10 +24,13 @@ export function youTubePlaylistStyles() {
     padding: 0,
   };
   const videoContainerStyle: React.CSSProperties = {
-    margin: 0,
+    margin: `0 0 ${gapSize}px`,
+    position: "relative",
   };
   const videoImageStyle: React.CSSProperties = {
     width: "100%",
+    aspectRatio: "16/9 auto",
+    backgroundColor: "#D3D3D3",
     cursor: "pointer",
   };
   const videoCaptionStyle: React.CSSProperties = {
