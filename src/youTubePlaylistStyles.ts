@@ -28,8 +28,9 @@ export function youTubePlaylistStyles(
     position: "relative",
   };
   const videoImageStyle: React.CSSProperties = {
-    display: "block",
     width: "100%",
+    aspectRatio: "16/9 auto",
+    backgroundColor: "#D3D3D3",
     cursor: "pointer",
   };
   const videoCaptionStyle: React.CSSProperties = {
