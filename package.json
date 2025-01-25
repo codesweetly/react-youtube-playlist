@@ -56,6 +56,10 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
   },
+  "funding": {
+    "type": "buymeacoffee",
+    "url": "https://www.buymeacoffee.com/codesweetly"
+  },
   "peerDependencies": {
     "react": "^19.0.0"
   }
