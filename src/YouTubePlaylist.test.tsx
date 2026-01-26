@@ -1,4 +1,3 @@
-import React from "react";
 import { render } from "@testing-library/react";
 import { test } from "@jest/globals";
 import { YouTubePlaylist } from "./YouTubePlaylist";
@@ -22,6 +21,6 @@ test("youtube playlist renders correctly with custom styles", () => {
       apiKey=""
       playlistId=""
       customStyles={{ videoContainerStyle, imageBtnStyle }}
-    />
+    />,
   );
 });
