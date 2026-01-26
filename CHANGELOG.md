@@ -3,6 +3,13 @@
 All notable changes to **react-image-grid-gallery** are documented here.
 
 
+## [3.1.2](https://github.com/codesweetly/react-youtube-playlist/compare/v3.1.1...v3.1.2) (2026-01-26)
+
+### 📚 Documentation
+
+* Correct typos in funding info entries ([e0aa508](https://github.com/codesweetly/react-youtube-playlist/commit/e0aa508fedec26b41ca749fe54ea7b6e08258048))
+* Correct typos in funding info entries ([97e9432](https://github.com/codesweetly/react-youtube-playlist/commit/97e9432dd012b3c20b08990fe455bff67ca6da9b))
+
 ## [3.1.1](https://github.com/codesweetly/react-youtube-playlist/compare/v3.1.0...v3.1.1) (2026-01-26)
 
 ### ♻️ Refactoring
