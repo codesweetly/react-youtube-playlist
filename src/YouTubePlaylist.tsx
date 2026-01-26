@@ -1,10 +1,11 @@
 import { ReactElement, useRef, useEffect, useState } from "react";
+// .js(x) extensions are required for ESM build import resolution
 import {
   YouTubePlaylistPropsType,
   PlaylistData,
-} from "./YouTubePlaylist.types";
-import { youTubePlaylistStyles } from "./youTubePlaylistStyles";
-import getPlaylistData from "./getPlaylistData";
+} from "./YouTubePlaylist.types.jsx";
+import { youTubePlaylistStyles } from "./youTubePlaylistStyles.js";
+import getPlaylistData from "./getPlaylistData.js";
 
 export function YouTubePlaylist({
   apiKey,

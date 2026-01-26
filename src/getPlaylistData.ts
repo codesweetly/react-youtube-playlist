@@ -1,9 +1,9 @@
-import { FetchedData, PlaylistDataItem } from "./getPlaylistData.types";
+import { FetchedData, PlaylistDataItem } from "./getPlaylistData.types.js"; // .js extension is required for ESM build import resolution
 
 async function getPlaylistData(
   apiKey: string,
   playlistId: string,
-  currNextPageToken?: string
+  currNextPageToken?: string,
 ) {
   const youtubePlaylistItemsRequestEndPoint =
     "https://www.googleapis.com/youtube/v3/playlistItems";
@@ -11,7 +11,7 @@ async function getPlaylistData(
   const fetchedPlaylist = await fetch(
     `${youtubePlaylistItemsRequestEndPoint}?part=snippet&playlistId=${playlistId}&maxResults=50${
       currNextPageToken ? `&pageToken=${currNextPageToken}` : ""
-    }&key=${apiKey}`
+    }&key=${apiKey}`,
   );
 
   const data: FetchedData = await fetchedPlaylist.json();
