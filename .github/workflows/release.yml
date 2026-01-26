@@ -48,6 +48,7 @@ jobs:
       # - semantic-release@25: The main semantic-release package
       # - @semantic-release/changelog@6: Update the changelog file
       # - @semantic-release/git@10: Commit changelog and version bump
+      # - conventional-changelog-conventionalcommits@9: Conventional Commits preset for commit analysis and changelog generation
       - name: Install semantic-release (CI-only)
         run: |
           npm install --no-save \
