@@ -54,7 +54,7 @@ jobs:
             semantic-release@25 \
             @semantic-release/changelog@6 \
             @semantic-release/git@10 \
-            @conventional-changelog-conventionalcommits@9 \
+            conventional-changelog-conventionalcommits@9 \
 
       # Run semantic-release to automate the release process
       - name: Run semantic-release
