@@ -12,7 +12,6 @@
     "build": "rm -r dist && npm run build:esm && npm run build:cjs",
     "build:esm": "tsc",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs",
-    "release": "dotenv release-it --",
     "test": "jest --config jest.config.ts",
     "watch": "tsc --watch",
     "prepare": "husky"
@@ -43,15 +42,12 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@jest/globals": "^29.7.0",
-    "@release-it/conventional-changelog": "^9.0.4",
     "@testing-library/react": "^16.1.0",
     "@types/react": "^19.0.4",
-    "dotenv-cli": "^8.0.0",
     "husky": "^9.1.7",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "react": "^19.0.0",
-    "release-it": "^17.11.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
