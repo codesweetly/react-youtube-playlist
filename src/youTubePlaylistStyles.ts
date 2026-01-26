@@ -1,9 +1,9 @@
-import { YouTubePlaylistStylesType } from "./YouTubePlaylist.types";
+import { YouTubePlaylistStylesType } from "./YouTubePlaylist.types.jsx"; // .jsx extension is required for ESM build import resolution
 
 export function youTubePlaylistStyles(
   columnCount?: string | number,
   columnWidth?: string | number,
-  gapSize?: number
+  gapSize?: number,
 ): YouTubePlaylistStylesType {
   const loaderContainerStyle: React.CSSProperties = {
     display: "flex",
