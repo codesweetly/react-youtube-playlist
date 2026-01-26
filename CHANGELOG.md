@@ -3,6 +3,13 @@
 All notable changes to **react-image-grid-gallery** are documented here.
 
 
+## [3.1.3](https://github.com/codesweetly/react-youtube-playlist/compare/v3.1.2...v3.1.3) (2026-01-26)
+
+### 🐛 Bug Fixes
+
+* Make esm build emit imports with extensions ([125f1da](https://github.com/codesweetly/react-youtube-playlist/commit/125f1da4c0a215c65c0a7c52d450352466ca3a17))
+* Make esm build emit imports with extensions ([c39461c](https://github.com/codesweetly/react-youtube-playlist/commit/c39461c2ec46ff8d9e6dc88c7d932a7b13027ebc))
+
 ## [3.1.2](https://github.com/codesweetly/react-youtube-playlist/compare/v3.1.1...v3.1.2) (2026-01-26)
 
 ### 📚 Documentation
