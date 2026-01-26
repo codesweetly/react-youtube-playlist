@@ -19,8 +19,8 @@ All notable changes to **react-image-grid-gallery** are documented here.
 
 ### 📚 Documentation
 
-* Add funding ingo ([d9d9f33](https://github.com/codesweetly/react-youtube-playlist/commit/d9d9f338056ff17862bac146cdc5e5c5bab95320))
-* Add funding ingo ([0f1c1e4](https://github.com/codesweetly/react-youtube-playlist/commit/0f1c1e4cb1830ec53f55c329f7774714ed4e65f9))
+* Add funding info ([d9d9f33](https://github.com/codesweetly/react-youtube-playlist/commit/d9d9f338056ff17862bac146cdc5e5c5bab95320))
+* Add funding info ([0f1c1e4](https://github.com/codesweetly/react-youtube-playlist/commit/0f1c1e4cb1830ec53f55c329f7774714ed4e65f9))
 
 # Changelog
 
