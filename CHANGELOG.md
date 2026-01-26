@@ -1,3 +1,27 @@
+# 📦 Changelog
+
+All notable changes to **react-image-grid-gallery** are documented here.
+
+
+## [3.1.1](https://github.com/codesweetly/react-youtube-playlist/compare/v3.1.0...v3.1.1) (2026-01-26)
+
+### ♻️ Refactoring
+
+* Replace release-it with semantic-release ci only workflow ([c1a1be3](https://github.com/codesweetly/react-youtube-playlist/commit/c1a1be30143c93f25778f944078c5aa8f73a5019))
+
+### 🐛 Bug Fixes
+
+* Delete invalid character from package's name ([e5fdaaa](https://github.com/codesweetly/react-youtube-playlist/commit/e5fdaaae4d66ecaa49ef9be429b0210e90a78c86))
+* Delete invalid character from package's name ([7c9630e](https://github.com/codesweetly/react-youtube-playlist/commit/7c9630ed7b6cbed2772dbfbec97593018c4989c9))
+* Specify the correct module system and resolution strategy for each build output ([01ec8c6](https://github.com/codesweetly/react-youtube-playlist/commit/01ec8c61e8a0e9f9ca73bde50fdc63a7d6f5ba2f))
+* Update conventional commit package's name ([82a8fe1](https://github.com/codesweetly/react-youtube-playlist/commit/82a8fe14ae191c176f35117af910cb83e893de0c))
+* Update conventional commit package's name to [@conventional-changelog-conventionalcommit](https://github.com/conventional-changelog-conventionalcommit)s@9 ([ea193df](https://github.com/codesweetly/react-youtube-playlist/commit/ea193df1b241ca7b1e628c0e98380643e96cbadc))
+
+### 📚 Documentation
+
+* Add funding ingo ([d9d9f33](https://github.com/codesweetly/react-youtube-playlist/commit/d9d9f338056ff17862bac146cdc5e5c5bab95320))
+* Add funding ingo ([0f1c1e4](https://github.com/codesweetly/react-youtube-playlist/commit/0f1c1e4cb1830ec53f55c329f7774714ed4e65f9))
+
 # Changelog
 
 ## 3.1.0 (2025-01-09)
