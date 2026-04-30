@@ -131,34 +131,6 @@ function App() {
 
 </td>
 </tr>
-<tr>
-<td>
-
-`customStyles`
-
-</td>
-<td>ImageGalleryStylesType</td>
-<td><code>{}</code></td>
-<td>
-
-(**Optional**) Custom styles to override the following element's default styles:
-
-- Loader container: `loaderContainer`
-- Gallery container: `galleryContainerStyle`
-- Gallery image button: `imageBtnStyle`
-- Gallery video container: `videoContainerStyle`
-- Gallery image element: `videoImageStyle`
-- Gallery video caption: `videoCaptionStyle`
-- Modal container: `modalContainerStyle`
-- Modal slide number: `modalSlideNumberStyle`
-- Modal toolbar: `modalToolbarStyle`
-- Modal toolbar button: `modalToolbarBtnStyle`
-- Modal slideshow section: `modalSlideShowSectionStyle`
-- Modal iframe element: `modalIFrameStyle`
-- Modal slide button: `modalSlideBtnStyle`
-
-</td>
-</tr>
 </tbody>
 </table>
 

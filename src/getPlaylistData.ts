@@ -1,4 +1,4 @@
-import { FetchedData, PlaylistDataItem } from "./getPlaylistData.types.js"; // .js extension is required for ESM build import resolution
+import { FetchedData, PlaylistDataItem } from "./getPlaylistData.types.ts";
 
 async function getPlaylistData(
   apiKey: string,

@@ -20,7 +20,6 @@ export interface YouTubePlaylistPropsType {
   columnCount?: string | number;
   columnWidth?: string | number;
   gapSize?: number;
-  customStyles?: YouTubePlaylistStylesType;
 }
 
 export interface PlaylistData {

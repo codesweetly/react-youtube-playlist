@@ -3,7 +3,6 @@ import {
   YouTubePlaylistPropsType,
   PlaylistData,
 } from "./YouTubePlaylist.types.tsx";
-// import { youTubePlaylistStyles } from "./youTubePlaylistStyles.ts";
 import getPlaylistData from "./getPlaylistData.ts";
 
 export function YouTubePlaylist({
@@ -12,7 +11,6 @@ export function YouTubePlaylist({
   columnCount = "auto",
   columnWidth = 230,
   gapSize = 24,
-  // customStyles = {},
 }: YouTubePlaylistPropsType) {
   const [videoId, setVideoId] = useState("");
   const [slideNumber, setSlideNumber] = useState(1);
@@ -24,26 +22,6 @@ export function YouTubePlaylist({
   const lastCardRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDialogElement | null>(null);
   const lightboxRef = useRef<HTMLElement | null>(null);
-
-  // const defaultStyles = youTubePlaylistStyles(
-  //   columnCount,
-  //   columnWidth,
-  //   gapSize,
-  // );
-  // const playlistStyles = { ...defaultStyles, ...customStyles };
-  // const loaderContainerStyle = playlistStyles.loaderContainerStyle;
-  // const galleryContainerStyle = playlistStyles.galleryContainerStyle;
-  // const imageBtnStyle = playlistStyles.imageBtnStyle;
-  // const videoContainerStyle = playlistStyles.videoContainerStyle;
-  // const videoImageStyle = playlistStyles.videoImageStyle;
-  // const videoCaptionStyle = playlistStyles.videoCaptionStyle;
-  // const modalContainerStyle = playlistStyles.modalContainerStyle;
-  // const modalSlideNumberStyle = playlistStyles.modalSlideNumberStyle;
-  // const modalToolbarStyle = playlistStyles.modalToolbarStyle;
-  // const modalToolbarBtnStyle = playlistStyles.modalToolbarBtnStyle;
-  // const modalSlideShowSectionStyle = playlistStyles.modalSlideShowSectionStyle;
-  // const modalIFrameStyle = playlistStyles.modalIFrameStyle;
-  // const modalSlideBtnStyle = playlistStyles.modalSlideBtnStyle;
 
   function openLightboxOnSlide(vId: string, number: number) {
     setVideoId(vId);
@@ -127,7 +105,6 @@ export function YouTubePlaylist({
           <button
             type="button"
             ref={index + 1 === playlistDataArray.length ? lastCardRef : null}
-            // style={imageBtnStyle}
             className="cs-ryp-image-btn"
             key={item.id}
             onKeyDown={(e) =>
@@ -138,7 +115,6 @@ export function YouTubePlaylist({
             <figure
               className="cs-ryp-video-container"
               style={{ margin: `0 0 ${gapSize}px` }}
-              // style={videoContainerStyle}
             >
               <img
                 alt={`Video ${index + 1} of ${playlistDataArray.length}`}
@@ -146,13 +122,9 @@ export function YouTubePlaylist({
                 onClick={() =>
                   openLightboxOnSlide(item.resourceId.videoId, index + 1)
                 }
-                // style={videoImageStyle}
                 className="cs-ryp-video-image"
               />
-              <figcaption
-                // style={videoCaptionStyle}
-                className="cs-ryp-video-caption"
-              >
+              <figcaption className="cs-ryp-video-caption">
                 {item.title}
               </figcaption>
             </figure>
@@ -172,30 +144,19 @@ export function YouTubePlaylist({
         columnWidth: `${columnWidth}px`,
         columnGap: `${gapSize}px`,
       }}
-      // style={galleryContainerStyle}
     >
       {showVideoCards()}
     </div>
   ) : (
-    <div
-      // style={loaderContainerStyle}
-      className="cs-ryp-loader-container"
-    >
-      Loading...
-    </div>
+    <div className="cs-ryp-loader-container">Loading...</div>
   );
 
   const lightBoxElement = (
-    <dialog
-      ref={dialogRef}
-      className="cs-ryp-dialog"
-      // style={{ margin: "auto" }}
-    >
+    <dialog ref={dialogRef} className="cs-ryp-dialog">
       <article
         autoFocus
         tabIndex={-1}
         ref={lightboxRef}
-        // style={modalContainerStyle}
         className="cs-ryp-modal-container"
         onKeyDown={(e) => handleKeyDownOnModal(e)}
         onMouseEnter={() => setShowModalControls(true)}
@@ -208,28 +169,16 @@ export function YouTubePlaylist({
         <span
           className="cs-ryp-modal-slide-number"
           style={{ opacity: showModalControls ? 1 : 0 }}
-          // style={{
-          //   opacity: showModalControls ? 1 : 0,
-          //   ...modalSlideNumberStyle,
-          // }}
         >{`${slideNumber} / ${playlistDataArray?.length}`}</span>
         <span
           className="cs-ryp-modal-toolbar"
           style={{ opacity: showModalControls ? 1 : 0 }}
-          // style={{
-          //   opacity: showModalControls ? 1 : 0,
-          //   ...modalToolbarStyle,
-          // }}
         >
           <button
             type="button"
             aria-label="Go full screen (Keyboard shortcut f)"
             className="cs-ryp-modal-toolbar-btn"
             style={{ display: fullscreen ? "none" : "block" }}
-            // style={{
-            //   display: fullscreen ? "none" : "block",
-            //   ...modalToolbarBtnStyle,
-            // }}
             title="Go full screen (f)"
             onClick={() => switchFullScreen(true)}
           >
@@ -242,10 +191,6 @@ export function YouTubePlaylist({
             aria-label="Exit full screen"
             className="cs-ryp-modal-toolbar-btn"
             style={{ display: fullscreen ? "block" : "none" }}
-            // style={{
-            //   display: fullscreen ? "block" : "none",
-            //   ...modalToolbarBtnStyle,
-            // }}
             title="Exit full screen"
             onClick={() => switchFullScreen(false)}
           >
@@ -256,7 +201,6 @@ export function YouTubePlaylist({
           <button
             type="button"
             aria-label="Close lightbox"
-            // style={modalToolbarBtnStyle}
             className="cs-ryp-modal-toolbar-btn"
             title="Close lightbox"
             onClick={() => exitFullScreenAndDialog()}
@@ -266,20 +210,12 @@ export function YouTubePlaylist({
             )}
           </button>
         </span>
-        <section
-          // style={modalSlideShowSectionStyle}
-          className="cs-ryp-modal-slide-show-section"
-        >
+        <section className="cs-ryp-modal-slide-show-section">
           <button
             type="button"
             aria-label="Previous image"
             className="cs-ryp-modal-slide-btn"
             style={{ opacity: showModalControls ? 1 : 0, left: 0 }}
-            // style={{
-            //   opacity: showModalControls ? 1 : 0,
-            //   left: 0,
-            //   ...modalSlideBtnStyle,
-            // }}
             title="Previous image"
             onClick={() => changeSlide(-1)}
           >
@@ -291,7 +227,6 @@ export function YouTubePlaylist({
             )}
           </button>
           <iframe
-            // style={modalIFrameStyle}
             className="cs-ryp-modal-i-frame"
             src={`https://www.youtube.com/embed/${videoId}?v=${videoId}`}
             title="YouTube video player"
@@ -303,11 +238,6 @@ export function YouTubePlaylist({
             aria-label="Next image"
             className="cs-ryp-modal-slide-btn"
             style={{ opacity: showModalControls ? 1 : 0, right: 0 }}
-            // style={{
-            //   opacity: showModalControls ? 1 : 0,
-            //   right: 0,
-            //   ...modalSlideBtnStyle,
-            // }}
             title="Next image"
             onClick={() => changeSlide(1)}
           >
