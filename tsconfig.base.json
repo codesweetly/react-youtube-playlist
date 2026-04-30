@@ -1,6 +1,6 @@
 {
   "include": ["src/**/*"],
-  "exclude": ["src/**/*.test.tsx"],
+  "exclude": ["src/**/*.test.tsx", "src/jestPolyfillSetup.ts"],
   "compilerOptions": {
     "jsx": "react-jsx",
     "target": "es2018",

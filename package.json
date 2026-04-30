@@ -10,7 +10,8 @@
       "require": "./dist/cjs/YouTubePlaylist.js",
       "import": "./dist/esm/YouTubePlaylist.js",
       "types": "./dist/esm/YouTubePlaylist.d.ts"
-    }
+    },
+    "./style.css": "./dist/style.css"
   },
   "homepage": "https://codesweetly.com/react-youtube-playlist",
   "author": "Oluwatobi Sofela <contact@codesweetly.com> (https://www.codesweetly.com)",
