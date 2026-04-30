@@ -42,8 +42,11 @@ pnpm add @codesweetly/react-youtube-playlist
 
 ## Usage
 
+Import the library and its stylesheet, and use it as shown below:
+
 ```js
 import { YouTubePlaylist } from "@codesweetly/react-youtube-playlist";
+import "@codesweetly/react-youtube-playlist/style.css";
 
 function App() {
   return (
@@ -54,6 +57,10 @@ function App() {
   );
 }
 ```
+
+### Why import the stylesheet?
+
+The components rely on predefined CSS classes for styling. Importing the stylesheet once ensures consistent application of these styles across all components.
 
 ## Props
 
@@ -165,7 +172,7 @@ The `YouTubePlaylist` package works _only_ as a Client Component because it uses
 
 ## Build
 
-```diff
+```console
 npm run build
 ```
 
